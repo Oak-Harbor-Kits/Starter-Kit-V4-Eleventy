@@ -1,0 +1,374 @@
+/*-- -------------------------- -->
+<---          Contact           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0em) {
+    :root {
+        /* 13px - 16px */
+        --topperFontSize: clamp(.8125rem, 1.6vw, 1rem);
+        /* 31px - 49px */
+        --headerFontSize: clamp(1.9375rem, 4.5vw, 3.0625rem);
+        --bodyFontSize: 16/16rem;
+
+        /* 60px - 100px top and bottom */
+        --sectionPadding: clamp(3.75em, 7.82vw, 6.25em) 16/16rem;
+    }
+
+    #cs-contact {
+        font-family: 'Roboto', 'Arial', sans-serif;
+        padding: var(--sectionPadding);
+
+        .cs-container {
+            width: 100%;
+            /* changes to 1280px at desktop */
+            max-width: 800/16rem;
+            margin: auto;
+        }
+
+        .cs-content {
+            width: 100%;
+        }
+
+        .cs-topper {
+            font-size: var(--topperFontSize);
+            line-height: 1.2em;
+            text-transform: uppercase;
+            text-align: left;
+            letter-spacing: .1em;
+            font-weight: 700;
+            color: var(--primary);
+            /* 8px - 12px */
+            margin-bottom: clamp(.5rem, 1.4vw, .75rem);
+            display: block;
+        }
+
+        .cs-title {
+            font-size: var(--headerFontSize);
+            font-weight: 900;
+            line-height: 1.2em;
+            text-align: left;
+            max-width: 800/16rem;
+            margin: 0 auto 16/16rem 0;
+            color: var(--headerColor);
+            position: relative;
+        }
+
+        .cs-text {
+            font-size: var(--bodyFontSize);
+            line-height: 1.5em;
+            text-align: left;
+            width: 100%;
+            /* 404px - 522px */
+            max-width: clamp(25.25rem, 30vw, 32.625rem);
+            margin: 0 auto 0 0;
+            /* 40px - 48px */
+            margin-bottom: clamp(2.5rem, 6.3vw, 3rem);
+            color: var(--bodyTextColor);
+        }
+
+        #cs-form {
+            margin-bottom: 40/16rem;
+            label {
+                font-size: 16/16rem;
+                line-height: 1.5em;
+                font-weight: 700;
+                /* 12px - 20px */
+                margin-bottom: clamp(.75rem, 1.3em, 1.25rem);
+                color: var(--headerColor);
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .cs-label-message {
+                /* 32px - 48px */
+                margin-bottom: clamp(2rem, 6.3vw, 3rem);
+            }
+
+            input, textarea {
+                font-size: 16/16rem;
+                width: 100%;
+                height: 64/16rem;
+                margin-top: 4/16rem;
+                padding-left: 20/16rem;
+                border: 1px solid #B4B2C7;
+                border-radius: 8/16rem;
+                /* prevents border & padding from affecting height */
+                box-sizing: border-box;
+                transition: border .3s;
+
+                &:hover {
+                    border: 1px solid var(--primary);
+                }
+            }
+
+            textarea {
+                font-family: inherit;
+                padding-top: 20/16rem;
+                min-height: 120/16rem;
+            }
+
+            .cs-button-solid {
+                width: 100%;
+            }
+        }
+
+        .cs-button-solid {
+            font-size: 16/16rem;
+            line-height: 56/16rem;
+            text-decoration: none;
+	    	font-weight: 700;
+	        text-align: center;
+            margin: auto;
+            color: #1a1a1a;
+            min-width: 150/16rem;
+            padding: 0 24/16rem;
+            background-color: var(--primary);
+            border: none;
+            border-radius: 4/16rem;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            /* prevents padding from adding to the width */
+            box-sizing: border-box;
+
+            &:before {
+                content: '';
+                position: absolute;
+                height: 100%;
+                width: 0%;
+                background: #000;
+                opacity: 1;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                border-radius: 4/16rem;
+                transition: width .3s;
+            }
+
+            &:hover {
+                color: var(--bodyTextColorWhite);
+                cursor: pointer;
+                &:before {
+                    width: 100%;
+                }
+            }
+        }
+
+        .cs-right-section {
+            position: relative;
+            height: 320/16rem;
+            /* 24px - 40px top & bottom */
+            /* 20px - 40px left & right */
+            padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.5rem);
+            border-radius: 8/16rem;
+            /* cuts off corners on img tag */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+        }
+
+        .cs-header {
+            /* 16px - 20px */
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            line-height: 1.2em;
+            font-weight: 700;
+            margin-bottom: 8/16rem;
+            color: var(--bodyTextColorWhite);
+            display: block;
+        }
+
+        .cs-link {
+            /* 16px - 20px */
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            line-height: 1.2em;
+            text-decoration: none;
+            margin-bottom: 20/16rem;
+            color: var(--bodyTextColorWhite);
+            display: block;
+            position: relative;
+
+            &:before {
+                /* Animated underline */
+                content: '';
+                width: 0%;
+                height: 2px;
+                /* current color of the parent */
+                background: currentColor;
+                opacity: 1;
+                position: absolute;
+                display: block;
+                bottom: -2/16rem;
+                left: 0;
+                transition: width .3s;
+            }
+
+            &:hover {
+                &:before {
+                    width: 100%;
+                }
+            }
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+
+        .cs-block {
+            /* sends second address line to the bottom on its own line */
+            display: block;
+        }
+
+        .cs-bg-picture {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: transform .6s;
+
+            &:before {
+                /* background color overlay */
+                content: '';
+                position: absolute;
+                display: block;
+                height: 100%;
+                width: 100%;
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                /* Makes img tag act as a background image */
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+/* Tablet - 700px */
+@media only screen and (min-width: 43.75em) {
+    #cs-contact {
+        #cs-form {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+
+            label {
+                width: 48%;
+            }
+
+            .cs-label-message {
+                width: 100%;
+            }
+        }
+    }
+}
+
+/* Small Desktop - 1024px */
+@media only screen and (min-width: 64em) {
+    #cs-contact {
+        .cs-container {
+            max-width: 1280/16rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            gap: 80/16rem;
+        }
+
+        #cs-form {
+            max-width: 630/16rem;
+            label {
+                width: 100%;
+            }
+        }
+
+        .cs-right-section {
+            /* changes to 578px at 1300px wide */
+            height: 686/16rem;
+            width: 40%;
+            max-width: 542/16rem;
+            /* prevents flexbox from squishing it */
+            flex: none;
+
+            &:hover {
+                .cs-bg-picture {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        .cs-block {
+            /* goes back to inline so it stays "in line" with the rest of the text */
+            display: inline-block;
+        }
+    }
+}
+
+/* Small Desktop - 1300px */
+@media only screen and (min-width: 81.25em) {
+    #cs-contact {
+        #cs-form {
+            column-gap: 0/16rem;
+            label {
+                width: 48%;
+                max-width: 305/16rem;
+            }
+
+            .cs-label-message {
+                max-width: 100%;
+            }
+        }
+
+        .cs-right-section {
+            height: 578/16rem;
+        }
+    }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0em) {
+    body.dark-mode {
+        #cs-contact {
+            .cs-text, .cs-title {
+                color: var(--bodyTextColorWhite);
+            }
+
+            #cs-form {
+                label, input, textarea {
+                    background-color: transparent;
+                    color: var(--bodyTextColorWhite);
+
+                    &::placeholder {
+                        /* lighten up the color of the text by 40%*/
+                        filter: brightness(1.4);
+                    }
+                }
+            }
+
+            .cs-bg-picture {
+                background-color: #000;
+
+                img {
+                    /* lets parent background-color bleed through and darken it */
+                    opacity: .5;
+                }
+            }
+        }
+    }
+}
+                                

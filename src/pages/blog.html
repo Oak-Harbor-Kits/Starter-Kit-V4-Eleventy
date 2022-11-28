@@ -1,0 +1,94 @@
+---
+layout: 'base.html'
+canonical: 'Official link for that page (https://www.site.com)'
+description: "Meta description for the page"
+metaTitle: 'Title that shows up on google searches'
+tagTitle: 'Company Name | What They Do | Town and State'
+permalink: 'blog/'
+---
+
+{% block preload %}
+<link rel="preload" as="image" href="/assets/images/cabinets2-m.jpg">
+{% endblock %}
+
+{% block pageCSS %}
+<link rel="stylesheet" href="/css/blog.css">
+{% endblock %}
+
+<!-- Enter html code below -->
+<!-- ============================================ -->
+<!--                    LANDING                   -->
+<!-- ============================================ -->
+
+<section id="int-hero">
+  <h1 id="home-h">Blog</h1>
+  <picture>
+      <source media="(max-width: 600px)" srcset="/assets/images/cabinets2-m.jpg">
+      <source media="(min-width: 601px)" srcset="/assets/images/cabinets2.jpg">
+      <img aria-hidden="true" decoding="async" src="/assets/images/cabinets2.jpg" alt="cabinets" width="400" height="662">
+  </picture>
+</section>
+
+<!-- ============================================ -->
+<!--              Main Blog Content               -->
+<!-- ============================================ -->
+
+<div class="blog-container main-content-wrapper">
+  <!--Main content -->
+  <div class="main-content">
+    <!-- ============================================ -->
+    <!--                 Blog Articles                -->
+    <!-- ============================================ -->
+
+    {% if collections.post |length == 0 %}
+    <h1>No Recent Posts</h1>
+    {% endif %}
+    {%- for post in collections.post | reverse -%}
+    <article class="recent-articles">
+      <!--Main Article Image-->
+      <picture class="blog-mainImage">
+        <img
+          src="{{ post.data.image }}"
+          alt="{{ post.data.imageAlt }}"
+          width="795"
+          height="400"
+          decoding="async"
+        />
+      </picture>
+      <!--Article Info-->
+      <div class="article-group">
+        <div class="blog-authorGroup">
+          <!--Author Image-->
+          <picture class="blog-author-img">
+            <img
+              src="/assets/images/profile.svg"
+              alt="house"
+              width="32"
+              height="32"
+              decoding="async"
+            />
+          </picture>
+          <span class="blog-author">{{ post.data.author }}</span>
+          <span aria-hidden="true" class="blog-dot"></span>
+          <!--Blog Date-->
+          <span class="blog-date">{{ post.date | postDate }}</span>
+        </div>
+        <h2 class="blog-h1">
+          {{ post.data.blogTitle }}
+        </h2>
+        <p class="blog-desc">
+          {{ post.data.blogDescription }}
+        </p>
+        <a href="{{ post.url }}" class="blog-link">Continue Reading</a>
+      </div>
+    </article>
+    {%- endfor -%}
+  </div>
+
+  <!-- ============================================ -->
+  <!--                Featured Posts                -->
+  <!-- ============================================ -->
+
+  {% include 'featured-post.html' %}
+</div>
+

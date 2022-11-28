@@ -1,0 +1,266 @@
+/*-- -------------------------- -->
+<---           Reviews          -->
+<--- -------------------------- -*/
+
+/* Mobile */
+@media only screen and (min-width: 0em) {
+    #reviews {
+        padding-top: 120/16rem;
+        padding-bottom: 50/16rem;
+        margin: auto;
+
+        .container {
+            width: 96%;
+            max-width: 1320/16rem;
+        }
+
+        .review {
+            padding: 64/16rem 30/16rem 18/16rem 30/16rem;
+            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 410/16rem;
+            margin: auto;
+            margin-bottom: 100/16rem;
+            border-radius: 5/16rem;
+            position: relative;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            .profile {
+                display: block;
+                height: 99/16rem;
+                width: 99/16rem;
+                margin-left: 0;
+                border-radius: 50%;
+                margin-bottom: 16/16rem;
+                position: absolute;
+                left: 30/16rem;
+                top: -51/16rem;
+            }
+
+            p {
+                line-height: 24/18;
+                margin-bottom: 28/16rem;
+                text-align: left;
+            }
+
+            .star-group {
+                border-top: 1px solid #E7E7E7;
+                padding-top: 16/16rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: nowrap;
+                margin-top: auto;
+
+                .name {
+                    color: #1A1A1A;
+                    line-height: 24/16rem;
+                    text-align: left;
+                    font-weight: bold;
+                    display: block;
+                }
+
+                .desc {
+                    color: #575757;
+                    font-weight: 400;
+                    display: block;
+                }
+
+                img {
+                    display: block;
+                    width: 91/16rem;
+                    height: 15/16rem;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+/* Tablet */
+@media only screen and (min-width: 48em) {
+
+    #reviews {
+        padding-top: 150/16rem;
+        padding-bottom: 50/16rem;
+        
+        .container {
+            font-size:~"min(1.4vw, 1em)";
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0;
+            column-gap: 30/16rem;
+        }
+
+        .review {
+            margin: 0;
+            margin-bottom: 150/16rem;
+
+            &:last-of-type {
+                margin-bottom: 150/16rem;
+            }
+        }
+    }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0em) {
+    body.dark-mode {
+        #reviews {
+            .review {
+                background: var(--medium);
+
+                .name {
+                    color: #fff;
+                }
+
+                .desc {
+                    color: #fff;
+                    opacity: .7;
+                }
+            }
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---    Final Call To Action    -->
+<--- -------------------------- -*/
+
+/* Mobile */
+@media only screen and (min-width: 0em) {
+    #cta {
+        position: relative;
+        padding: 50/16rem 0;
+
+        &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            height: 100%;
+            width: 100%;
+            background: #000;
+            opacity: .7;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        picture {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -2;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .title {
+            font-weight: 900;
+            font-size:~"min(9vw, 3rem)";
+            line-height: 58/48;
+            color: #fff;
+            position: relative;
+            margin-bottom: 36/16rem;
+            text-align: center;
+        }
+
+        p {
+            color: #fff;
+            text-align: center;
+            opacity: 1;
+            margin: auto;
+            margin-bottom: 36/16rem;
+            width: 96%;
+            max-width: 598/16rem;
+
+        }
+    }
+}
+
+/* Small Desktop */
+@media only screen and (min-width: 64em) {
+    #cta {
+        padding: 168/16rem 0;
+    }
+}
+
+/* Large Desktop */
+@media only screen and (min-width: 1300px) {
+    #cta {
+        position: relative;
+        margin-top: 100/16rem;
+        &:before {
+            display: none;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            height: 1108/16rem;
+            width: 2000/16rem;
+            background: url("..assets/images/cta-squares.svg");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 1;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -3;
+         }
+        .container {
+            width: 90.0625%;
+            margin: auto;
+        }
+
+        picture {
+            width: 90.0625%;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &:before {
+                content: '';
+                position: absolute;
+                display: block;
+                height: 100%;
+                width: 100%;
+                background: #000;
+                opacity: .7;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+        }
+    }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0em) {
+    body.dark-mode {
+        #cta {
+            &:after {
+                display: none;
+            }
+        }
+    }
+}

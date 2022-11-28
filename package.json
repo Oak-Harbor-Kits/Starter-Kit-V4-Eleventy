@@ -1,0 +1,24 @@
+{
+  "name": "starter-kit-v4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OakHarbor/Starter-Kit-v4-Eleventy-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OakHarbor/Starter-Kit-v4-Eleventy-/issues"
+  },
+  "homepage": "https://github.com/OakHarbor/Starter-Kit-v4-Eleventy-#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.2"
+  }
+}

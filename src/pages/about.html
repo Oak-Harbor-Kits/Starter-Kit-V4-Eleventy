@@ -1,0 +1,92 @@
+---
+layout: 'base.html'
+canonical: 'Official link for that page (https://www.site.com)'
+description: 'Meta description for the page'
+meta-title: 'Title that shows up on google searches'
+tagTitle: 'Company Name | What They Do | Town and State'
+permalink: 'about/'
+---
+
+{% block preload %}
+<link rel="preload" as="image" href="/assets/images/cabinets2-m.jpg">
+{% endblock %}
+
+{% block pageCSS %}
+<link rel="stylesheet" href="/css/about.css">
+{% endblock %}
+
+<!-- Enter html code below -->
+
+<!-- ============================================ -->
+<!--                    LANDING                   -->
+<!-- ============================================ -->
+
+<section id="int-hero">
+    <h1 id="home-h">About Us</h1>
+    <picture>
+        <source media="(max-width: 600px)" srcset="/assets/images/cabinets2-m.jpg">
+        <source media="(min-width: 601px)" srcset="/assets/images/cabinets2.jpg">
+        <img aria-hidden="true" decoding="async" src="/assets/images/cabinets2.jpg" alt="cabinets" width="400" height="662">
+    </picture>
+</section>
+
+<!-- ============================================ -->
+<!--                 Side By Side                 -->
+<!-- ============================================ -->
+
+<section id="sbs">
+    <div class="cs-container">
+        <!-- Left Image Section -->
+        <div class="cs-left">
+            <picture class="cs-picture cs-picture1" aria-hidden="true">
+                <source media="(max-width: 600px)" srcset="/assets/images/cabinets2-m.webp">
+                <source media="(min-width: 601px)" srcset="/assets/images/cabinets2.jpg">
+                <img loading="lazy" decoding="async" src="/assets/images/cabinets2.jpg" alt="house" width="522" height="581">
+            </picture>
+            <picture class="cs-picture cs-picture2" aria-hidden="true">
+                <source media="(max-width: 600px)" srcset="/assets/images/construction.jpg">
+                <source media="(min-width: 601px)" srcset="/assets/images/construction.jpg">
+                <img loading="lazy" decoding="async" src="/assets/images/construction.jpg" alt="house" width="414" height="400">
+            </picture>
+        </div>
+        <!-- Right Content Section-->
+        <div class="cs-right">
+            <span class="cs-topper">About Us</span>
+            <h2 class="cs-title">About Company Title</h2>
+            <p class="cs-text">
+                In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.
+            </p>
+            <p class="cs-text">
+                In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.
+            </p>
+            <div class="cs-flex-group">
+                <p class="cs-flex-p">
+                    In consequat tincidunt turpis sit amet imperdiet. Praesent Classei consequat tincidunt turpis sit amet imperdiet for mind.
+                </p>
+                <span class="cs-name">Justin Time</span>
+                <span class="cs-job">CEO-Founder</span>
+                <img class="cs-quote-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/quote-white.svg" alt="gavel" width="136" height="77">
+            </div>
+            <a href="" class="button-solid">More About Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!--             Final Call to Action             -->
+<!-- ============================================ -->
+
+<section id="cta">
+    <div class="container">
+        <h2 class="title">Get It Done <br> With Us Today</h2>
+        <p>
+            Say something catchy, informative, and encouraging to click the button to go to the contact page.  I like to add these to the bottom of all pages.
+        </p>
+        <a href="/contact.html" class="button-solid">Free Estimate</a>
+    </div>
+    <picture>
+        <source media="(max-width: 600px)" srcset="/assets/images/cabinets2-m.webp">
+        <source media="(min-width: 601px)" srcset="/assets/images/cabinets2.jpg">
+        <img aria-hidden="true" loading="lazy" decoding="async" src="/assets/images/cabinets2.jpg" alt="kitchen cabinets" width="1920" height="1280">
+        </picture>
+</section>

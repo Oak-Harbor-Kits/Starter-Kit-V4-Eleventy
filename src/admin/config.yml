@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: master
+
+local_backend: true
+# change url to a link to the image you want to use, no file paths, must be a URL
+logo_url: https://d33wubrfki0l68.cloudfront.net/c89899bad974606ce0e0f5d5a95842dc787dcb56/7fe98/assets/images/logo-blue.png
+
+media_folder: 'public/images/blog'
+public_folder: '/images/blog'
+
+collections:
+  - name: 'blog'
+    label: 'Blog'
+    folder: 'src/blog'
+    create: true
+    slug: '{{pageName}}'
+    fields:
+      - { label: 'Page-Name-with-dashes-only', name: 'pageName', widget: 'string' }
+      - { label: 'Title', name: 'blogTitle', widget: 'string' }
+      - { label: 'Description', name: 'blogDescription', widget: 'string' }
+      - { label: 'Author', name: 'author', widget: 'string' }
+      - { label: 'Date', name: 'date', widget: 'datetime' }
+      - { label: 'Tags', name: 'tags', widget: 'list', default: ['post'] }
+      - { label: 'Featured Image', name: 'image', widget: 'image' }
+      - { label: 'Image Caption', name: 'imageAlt', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }

@@ -1,0 +1,18 @@
+---
+layout: 'base.html'
+canonical: 'Official link for that page (https://www.site.com)'
+description: 'Meta description for the page'
+metaTitle: 'Title that shows up on google searches'
+tagTitle: 'Company Name | What They Do | Town and State'
+permalink: 'pageName/'
+---
+
+{% block preload %}
+<link rel="preload" as="image" href="/assets/images/landing.jpg">
+{% endblock %}
+
+{% block pageCSS %}
+<link rel="stylesheet" href="/css/page.css">
+{% endblock %}
+
+<!-- Enter html code below -->

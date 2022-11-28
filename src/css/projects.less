@@ -1,0 +1,242 @@
+/*-- -------------------------- -->
+<---          Gallery           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px - Contains hover animation */
+@media only screen and (min-width: 0em) {
+
+    #gallery {
+        /* Centers button */
+        text-align: center;
+        padding: var(--sectionPadding);
+        position: relative;
+        /* Prevents overflow from the image going off screen */
+        overflow: hidden;
+        .cs-container {
+            width: 100%;
+            max-width: 1322/16em;
+            margin: auto;
+        }
+
+        .cs-image-group {
+            /* used rem so it doesn't scale with the font size of on parent */
+            font-size:~"min(1.1vw, 1em)";
+            width: 100%;
+            max-width: 1322/16em;
+            padding: 0;
+            margin: 0 auto 60/16rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30/16em;
+        }
+
+        .cs-row {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 30/16em;
+        }
+
+        .cs-picture {
+            position: relative;
+            display: block;
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .cs-row-1 {
+            .cs-picture-1 {
+                width: 420/16em;
+                height: 567/16em;
+            }
+
+            .cs-picture-2 {
+                width: 420/16em;
+                height: 629/16em;
+            }
+
+            .cs-picture-3 {
+                width: 420/16em;
+                height: 512/16em;
+            }
+        }
+
+        .cs-row-2 {
+            .cs-picture-1 {
+                width: 420/16em;
+                height: 492/16em;
+            }
+
+            .cs-picture-2 {
+                width: 420/16em;
+                height: 517/16em;
+            }
+
+            .cs-picture-3 {
+                width: 420/16em;
+                height: 629/16em;
+            }
+        }
+
+        .cs-row-3 {
+            .cs-picture-1 {
+                width: 420/16em;
+                height: 625/16em;
+            }
+
+            .cs-picture-2 {
+                width: 420/16em;
+                height: 452/16em;
+            }
+
+            .cs-picture-3 {
+                width: 420/16em;
+                height: 629/16em;
+            }
+        }
+    }
+}                           
+
+/*-- -------------------------- -->
+<---    Final Call To Action    -->
+<--- -------------------------- -*/
+
+/* Mobile */
+@media only screen and (min-width: 0em) {
+    #cta {
+        position: relative;
+        padding: 50/16rem 0;
+
+        &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            height: 100%;
+            width: 100%;
+            background: #000;
+            opacity: .7;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        picture {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -2;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .title {
+            font-weight: 900;
+            font-size:~"min(9vw, 3rem)";
+            line-height: 58/48;
+            color: #fff;
+            position: relative;
+            margin-bottom: 36/16rem;
+            text-align: center;
+        }
+
+        p {
+            color: #fff;
+            text-align: center;
+            opacity: 1;
+            margin: auto;
+            margin-bottom: 36/16rem;
+            width: 96%;
+            max-width: 598/16rem;
+
+        }
+    }
+}
+
+/* Small Desktop */
+@media only screen and (min-width: 64em) {
+    #cta {
+        padding: 168/16rem 0;
+    }
+}
+
+/* Large Desktop */
+@media only screen and (min-width: 1300px) {
+    #cta {
+        position: relative;
+        margin-top: 100/16rem;
+        &:before {
+            display: none;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            height: 1108/16rem;
+            width: 2000/16rem;
+            background: url("..assets/images/cta-squares.svg");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 1;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -3;
+         }
+        .container {
+            width: 90.0625%;
+            margin: auto;
+        }
+
+        picture {
+            width: 90.0625%;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &:before {
+                content: '';
+                position: absolute;
+                display: block;
+                height: 100%;
+                width: 100%;
+                background: #000;
+                opacity: .7;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+        }
+    }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0em) {
+    body.dark-mode {
+        #cta {
+            &:after {
+                display: none;
+            }
+        }
+    }
+}
