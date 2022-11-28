@@ -133,6 +133,104 @@
 }
 
 /*-- -------------------------- -->
+<---   Interior Page Header     -->
+<--- -------------------------- -*/
+
+/* Mobile */
+@media only screen and (min-width: 0em) {
+
+    #int-hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        z-index: 1;
+        min-height: 30vh;
+        padding-top: 50/16rem;
+
+        &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            height: 100%;
+            width: 100%;
+            background: #000;
+            opacity: .7;
+            top: 0;
+            left: 0;
+            z-index: -1;
+          }
+
+          picture {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -2;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 64/30rem;
+            text-align: center;
+            margin: 0 auto;
+            position: relative;
+            width: 96%;
+            max-width: 500/16rem;
+            margin-top: 70/16rem;
+            margin-bottom: 30/16rem;
+        }
+
+        p {
+            color: #fff;
+            text-align: center;
+            max-width: 400/16rem;
+            margin: auto;
+            margin-bottom: 30/16rem;
+            display: block;
+            width: 96%;
+        }
+    }
+    
+}
+
+/* Tablet */
+@media only screen and (min-width: 48em) {
+
+    #int-hero {
+        font-size: 100%;
+
+        h1 {
+            font-size: 64/16rem;
+        }
+    }
+}
+
+/* Small Desktop */
+@media only screen and (min-width: 64em) {
+
+    #int-hero {
+        min-height: 300/16rem;
+        height: auto;
+        padding-top: 180/16rem;
+        padding-block-end: 100/16rem;
+        background-attachment: fixed;
+        font-size: inherit;
+    }
+}
+
+/*-- -------------------------- -->
 <---        Main Content        -->
 <--- -------------------------- -*/
 
@@ -312,6 +410,47 @@
     .recent-articles {
         .blog-h1 {
             max-width: 500/16rem;
+        }
+    }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0em) {
+    body.dark-mode {
+        .recent-articles {
+            .blog-h1, .blog-desc, .blog-author, .blog-date {
+                color: #f7f7f7;
+            }
+        }
+
+        .blog-sidebar {
+            .feature-h3, .feature-date, .blog-header {
+                color: #f7f7f7;
+            }
+            .blog-header {
+                &:after {
+                    background: var(--primary);
+                }
+            }
+        }
+
+        .blog-article {
+            .blog-h1, .blog-author, .blog-date {
+                color: #f7f7f7;
+            }
+
+            #blog-content {
+                h2, h3, h4, h5, h6 {
+                    color: #f7f7f7;
+                }
+                p, li {
+                    color: #f7f7f7;
+                    opacity: .8;
+                }
+                a {
+                    color: #9dafe5;
+                }
+            }
         }
     }
 }

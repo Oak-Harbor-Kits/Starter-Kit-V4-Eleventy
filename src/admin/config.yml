@@ -18,6 +18,7 @@ collections:
     fields:
       - { label: 'Page-Name-with-dashes-only', name: 'pageName', widget: 'string' }
       - { label: 'Title', name: 'blogTitle', widget: 'string' }
+      - { label: 'Title Tag', name: 'titleTag', widget: 'string' }
       - { label: 'Description', name: 'blogDescription', widget: 'string' }
       - { label: 'Author', name: 'author', widget: 'string' }
       - { label: 'Date', name: 'date', widget: 'datetime' }
