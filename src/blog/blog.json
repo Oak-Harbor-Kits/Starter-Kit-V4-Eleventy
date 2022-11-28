@@ -1,6 +1,5 @@
 {
   "layout": "blog-post-template.html",
-  "canonical": "www.websiteURL/{{ pageName }}.html",
   "tags": "post",
-  "permalink": "/{{ pageName }}.html"
+  "permalink": "/{{ page.fileSlug }}.html"
 }

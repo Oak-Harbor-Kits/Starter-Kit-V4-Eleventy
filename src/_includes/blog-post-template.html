@@ -1,14 +1,14 @@
 ---
 layout: 'base.html'
 eleventyComputed:
-    canonical: 'https://www.ciximusic.com/{{ pageName }}'
+    canonical: 'https://www.yourwebsite.com/{{ pageName }}'
     description: "{{ blogDescription }}"
     metaTitle: '{{ blogTitle }}'
     tagTitle: '{{ titleTag }}'
 ---
 
 {% block preload %}
-<link rel="preload" as="image" href="{{/assets/images/cabinets2-m.jpg}}">
+<link rel="preload" as="image" href="{{ image }}">
 {% endblock %}
 
 {% block pageCSS %}

@@ -17,7 +17,7 @@ collections:
     slug: '{{pageName}}'
     fields:
       - { label: 'Page-Name-with-dashes-only', name: 'pageName', widget: 'string' }
-      - { label: 'Title', name: 'blogTitle', widget: 'string' }
+      - { label: 'Blog Title', name: 'blogTitle', widget: 'string' }
       - { label: 'Title Tag', name: 'titleTag', widget: 'string' }
       - { label: 'Description', name: 'blogDescription', widget: 'string' }
       - { label: 'Author', name: 'author', widget: 'string' }
