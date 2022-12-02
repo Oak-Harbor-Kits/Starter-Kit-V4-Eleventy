@@ -355,6 +355,8 @@ We added a passthrough in the eleventy.js file that makes the robots.txt file us
 
 Make sure you add ```Disallow: /admin/``` in your robots.txt just below the ```User-agent: *``` at the top.  This will keep the /admin folder from being indexed on google. We don't want it indexed, it has no SEo value and will probably hurt your sites ranking because of it.  We've included a robots.txt file with this anyway as default. So all you have to do is add any other data that needs to be added. 
 
+Also **Add your sitemap URL to the robots.txt file**.  In the robots.txt file, theres a line that says ```Sitemap: https://www.yourwebsite/sitemap.xml```. Change the "https://www.yourwebsite" to the URL of your client's site and save and you're done. 
+
 # Adding the github to Netlify **IMPORTANT**
 
 Normally, this is pretty straightforward. But there's a slight difference when using this kit. Once you get to step 3 of "Import an existing project from a Git repository", at the bottom there’s a box for "publish directory". Sometimes it populates with "\_site", sometimes it has nothing. Make sure you change it to "public". If you don't do this it won't work.
