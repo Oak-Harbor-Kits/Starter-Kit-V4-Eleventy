@@ -320,6 +320,41 @@ logo_url: https://d33wubrfki0l68.cloudfront.net/c89899bad974606ce0e0f5d5a95842dc
 
 Change the logo URL to the URL of your clients logo. It won't take an image file path. Open your client's website and inspect the code, click on the logo, hover over it's link in the html in the dev tools, and click the live link to open the image in a new tab. Copy and paste that link and replace the one that's in front of the "logo_url:". When the client logs into the Netlify CMS it will show up above the login button.
 
+# Adding the sitemap
+
+If you need to create a sitemap, use this tool to do so and download the file: https://www.xml-sitemaps.com/
+
+To add this sitemap to the Eleventy system, you need to create a sitemap.njk file in the /src directory.  At the top of the file, add the permalink front matter to tell it the URL for this page:
+
+```
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+```
+
+Then copy and paste the sitemap code below the front matter. NO SPACE BETWEEN THE FRONT MATTER AND STEMAP CODE. This will throw up an error "errors: error on line 2 at column 6: XML declaration allowed only at the start of the document". There can be no spaces at the top of a sitemap.xml file.  The front matter is removed when compiled and the sitemap code moves up to the top where it's supposed to be.  So when you copy and paste your sitemap code below the front matter, make sure there's no gap between it and the "---" bottom line. Like so:
+
+```
+---
+permalink: '/sitemap.xml'
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+```
+
+# Adding robots.txt
+
+We added a passthrough in the eleventy.js file that makes the robots.txt file usable inside the /src folder.  So when you need to create a new one or move an old one over, place it in the /src folder and it will work.
+
+Make sure you add ```Disallow: /admin/``` in your robots.txt just below the ```User-agent: *``` at the top.  This will keep the /admin folder from being indexed on google. We don't want it indexed, it has no SEo value and will probably hurt your sites ranking because of it.  We've included a robots.txt file with this anyway as default. So all you have to do is add any other data that needs to be added. 
+
 # Adding the github to Netlify **IMPORTANT**
 
 Normally, this is pretty straightforward. But there's a slight difference when using this kit. Once you get to step 3 of "Import an existing project from a Git repository", at the bottom there’s a box for "publish directory". Sometimes it populates with "\_site", sometimes it has nothing. Make sure you change it to "public". If you don't do this it won't work.
