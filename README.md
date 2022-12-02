@@ -115,33 +115,13 @@ If you're ever unsure about file paths, it won't hurt to look in the public fold
 
 On the flip side, when you are writing a blog or importing an old blog to the new kit, when you link to another blog post in your post, it needs the .html extension. So if you're moving over a blog post that has a link to another blog post /other-blog-post.html, leave the .html. Otherwise the link won't work. But if you're linking to a regular page in your site, like /contact, it does NOT get an extension. Weird rule, but for some reason that's what it wants. So we obey it blindly.
 
-# Adding the github to Netlify **IMPORTANT**
-
-Normally, this is pretty straightforward. But there's a slight difference when using this kit. Once you get to step 3 of "Import an existing project from a Git repository", at the bottom there’s a box for "publish directory". Sometimes it populates with "\_site", sometimes it has nothing. Make sure you change it to "public". If you don't do this it won't work.
-https://youtu.be/v6LaVds4yeU?t=3181
-
-# Connecting the blog to Netlify
-
-Video showing how to do it:
-https://youtu.be/v6LaVds4yeU?t=3361
-
-Setup up is easy.
-
-1. Once you connected the github for your site to Netlify and add any custom domains, in the top nav you click on "Identity".
-2. Click "Enable Identity"
-3. Invite yourself and your client to the site
-4. While in the Identity tab, click the "Settings and usage" button to open the settings options
-5. Find "registration preferences" and click "edit settings" and set registration from public to invite only
-6. Find "enable providers" and add a provider. I choose Google so the client can login with google in 1 click.
-7. Find "Git Gateway" and enable it
-
 # How it works under the hood:
 
 https://youtu.be/UDU38awKQeg
 
 We have a base.html file that has all the code that will be repeated on every page, like the head tag and its meta data, navigation, footer, etc and we use template blocks (like little variables) to insert the content for each page's info into that base file. It loads the content, meta tag info, inserts any extra link tags or other tags that are unique to that page needed to display it properly (like individual page css files), and basically fills in the blanks on the base.html page template.
 
-# What is front matter (that weird code at the top of every HTML page)
+# What is front matter? (that weird code at the top of every HTML page)
 
 Every website page, including the index.html, will all have this front matter (as its called in Eleventy) code at the top which has all the variables that will fill in the blanks on the base.html page. Notice the option that says "layout: 'base.html". Thats telling Eleventy to use the base.html file as the HTML layout for this page, and fill in the variables with the rest of the info we have for it like the meta description, title tag etc.
 
@@ -228,24 +208,6 @@ The "preload" and "pageCSS" are variables I chose to represent that block. We us
 ```
 
 We add this in the base.html where the css links go and when the about page loads, it will see it has a block that is calling for a file in the about.html page and inserts it. So when we use this block on the /contact page, we still use the exact same block code we did on the about page, except it has the contact page's css file path. The base.html knows it needs to check for a pageCSS block on every page. When it sees it on the page, it checks to see what content it has and loads it in for that page only. That's how we can add page specific css files when we're using the same base template for every page. You don't want your about.css to be on every page. That's why we don't include it on the base.html head tag. It's just a waste of space. And we can't load it in as front matter variables because then we'd have to add a bunch of empty source paths for link tags to accommodate as many stylesheets as possible
-
-# Things that need to be renamed before you launch
-
-1. In the \_includes folder open base.html, and at top of the base.html you'll see the <link rel="canonical" href="https://www.website.com/{{ page.fileSlug }}". This is the canonical link for your page for Google to know the exact link that it should associate for your ranking. Change the https://www.website.com to your clients actual website address. The page.fileSlug will update this automatically based on the permalink value you set for the individual page. So you only need to set the canonical tag once in base.html and it correctly creates the canonical link for you
-
-2. In the blog-post-template.html page in the \_includes folder, there's another canonical tag you need to be aware of, this one if specific for your blog posts. Its canonical: 'https://www.yourwebsite.com/{{ pageName }}'. Again, change the https://www.yourwebsite.com to your client’s actual domain for your blog posts to also have the correct generated canonical tag.
-
-3. Also, on the blog-post-template, in the LANDING section you'll see a picture element with images. You change those to load the image you want on the top banner of all your blog posts. Just swap this image and it will change on all blog posts.
-
-4. In the /admin folder there is a config.yml file. Open that and find the following code:
-
-```
-local_backend: true
-# change url to a link to the image you want to use, no file paths, must be a URL
-logo_url: https://d33wubrfki0l68.cloudfront.net/c89899bad974606ce0e0f5d5a95842dc787dcb56/7fe98/assets/images/logo-blue.png
-```
-
-Change the logo URL to the URL of your clients logo. It won't take an image file path. Open your client's website and inspect the code, click on the logo, hover over it's link in the html in the dev tools, and click the live link to open the image in a new tab. Copy and paste that link and replace the one that's in front of the "logo_url:". When the client logs into the Netlify CMS it will show up above the login button.
 
 # Adding a new blog post or adding an old one to the new kit
 
@@ -339,3 +301,41 @@ If you are not moving over old blog posts, you can delete it as well before it g
 Once all blog posts (if needed) have been added or transferred over, it's worth a quick test to make sure it is ready to go live. In the top right of the terminal, there should be an icon that looks like two rectangles joined. This is the split terminal button. Click that, and you should get a side-by-side of two terminal views. In one, your dev server should be running off `npm start`. In the other, run the command `npx netlify-cms-proxy-server`. This runs a dev server for the Netlify CMS, allowing you to access it by going to localhost:8080/admin - much like you would if the website was live.
 
 If you get any errors, the most common reason is because the port 8081 is used. The CMS server runs off this port (although you can only access it with localhost:8080/admin), and won't try another port if that is taken. Make sure that port isn't taken by another server running and try again.
+
+# Things that need to be renamed before you launch
+
+1. In the \_includes folder open base.html, and at top of the base.html you'll see the <link rel="canonical" href="https://www.website.com/{{ page.fileSlug }}". This is the canonical link for your page for Google to know the exact link that it should associate for your ranking. Change the https://www.website.com to your clients actual website address. The page.fileSlug will update this automatically based on the permalink value you set for the individual page. So you only need to set the canonical tag once in base.html and it correctly creates the canonical link for you
+
+2. In the blog-post-template.html page in the \_includes folder, there's another canonical tag you need to be aware of, this one if specific for your blog posts. Its canonical: 'https://www.yourwebsite.com/{{ pageName }}'. Again, change the https://www.yourwebsite.com to your client’s actual domain for your blog posts to also have the correct generated canonical tag.
+
+3. Also, on the blog-post-template, in the LANDING section you'll see a picture element with images. You change those to load the image you want on the top banner of all your blog posts. Just swap this image and it will change on all blog posts.
+
+4. In the /admin folder there is a config.yml file. Open that and find the following code:
+
+```
+local_backend: true
+# change url to a link to the image you want to use, no file paths, must be a URL
+logo_url: https://d33wubrfki0l68.cloudfront.net/c89899bad974606ce0e0f5d5a95842dc787dcb56/7fe98/assets/images/logo-blue.png
+```
+
+Change the logo URL to the URL of your clients logo. It won't take an image file path. Open your client's website and inspect the code, click on the logo, hover over it's link in the html in the dev tools, and click the live link to open the image in a new tab. Copy and paste that link and replace the one that's in front of the "logo_url:". When the client logs into the Netlify CMS it will show up above the login button.
+
+# Adding the github to Netlify **IMPORTANT**
+
+Normally, this is pretty straightforward. But there's a slight difference when using this kit. Once you get to step 3 of "Import an existing project from a Git repository", at the bottom there’s a box for "publish directory". Sometimes it populates with "\_site", sometimes it has nothing. Make sure you change it to "public". If you don't do this it won't work.
+https://youtu.be/v6LaVds4yeU?t=3181
+
+# Connecting the blog to Netlify
+
+Video showing how to do it:
+https://youtu.be/v6LaVds4yeU?t=3361
+
+Setup up is easy.
+
+1. Once you connected the github for your site to Netlify and add any custom domains, in the top nav you click on "Identity".
+2. Click "Enable Identity"
+3. Invite yourself and your client to the site
+4. While in the Identity tab, click the "Settings and usage" button to open the settings options
+5. Find "registration preferences" and click "edit settings" and set registration from public to invite only
+6. Find "enable providers" and add a provider. I choose Google so the client can login with google in 1 click.
+7. Find "Git Gateway" and enable it
