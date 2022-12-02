@@ -6,6 +6,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/css/**/*.css');
   eleventyConfig.addPassthroughCopy('./src/assets');
   eleventyConfig.addPassthroughCopy('./src/admin');
+  // Put robots.txt in root
+  eleventyConfig.addPassthroughCopy({ 'src/robots.txt': '/robots.txt' });
 
   // watch CSS files for changes - doesn't trigger 11ty rebuild
   eleventyConfig.setBrowserSyncConfig({
