@@ -353,7 +353,7 @@ eleventyExcludeFromCollections: true
 
 We added a passthrough in the eleventy.js file that makes the robots.txt file usable inside the /src folder.  So when you need to create a new one or move an old one over, place it in the /src folder and it will work.
 
-Make sure you add ```Disallow: /admin/``` in your robots.txt just below the ```User-agent: *``` at the top.  This will keep the /admin folder from being indexed on google. We don't want it indexed, it has no SEo value and will probably hurt your sites ranking because of it.  We've included a robots.txt file with this anyway as default. So all you have to do is add any other data that needs to be added. 
+Make sure you add ```Disallow: /admin/``` in your robots.txt just below the ```User-agent: *``` at the top.  This will keep the /admin folder from being indexed on google. We don't want it indexed, it has no SEO value and will probably hurt your sites ranking because of it.  We've included a robots.txt file with this anyway as default. So all you have to do is add any other data that needs to be added. 
 
 Also **Add your sitemap URL to the robots.txt file**.  In the robots.txt file, theres a line that says ```Sitemap: https://www.yourwebsite/sitemap.xml```. Change the "https://www.yourwebsite" to the URL of your client's site and save and you're done. 
 
