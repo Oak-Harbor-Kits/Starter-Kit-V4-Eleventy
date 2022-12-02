@@ -1,8 +1,7 @@
 ---
 layout: 'base.html'
-canonical: 'Official link for that page (https://www.site.com)'
-description: 'Meta description for the page'
-metaTitle: 'Title that shows up on google searches'
+description: "Meta description for the page"
+metaTitle: 'Title that shows up on social OG Tags'
 tagTitle: 'Company Name | What They Do | Town and State'
 permalink: 'pageName/'
 ---
