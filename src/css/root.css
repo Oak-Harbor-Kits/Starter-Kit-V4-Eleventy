@@ -418,7 +418,8 @@
   #navigation #navbar-menu ul li a {
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.1875em;
+    /* 14px - 18px */
+    font-size: clamp(0.875rem, 1.5vw, 1.125rem);
     text-transform: uppercase;
     position: relative;
     z-index: 1;
