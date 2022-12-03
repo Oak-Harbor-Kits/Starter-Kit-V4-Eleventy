@@ -266,7 +266,7 @@
     overflow: hidden;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     background-color: #fff;
-    top: 4rem;
+    top: 3.7rem;
     padding-top: 0;
     height: 0;
     transition: height 0.3s, padding-top 0.3s, top 0.3s;
@@ -285,19 +285,25 @@
     transition: opacity .5s, transform .5s;
   }
   #navigation #navbar-menu ul li:nth-of-type(1) {
-    transition-delay: .1s;
+    transition-delay: .01s;
   }
   #navigation #navbar-menu ul li:nth-of-type(2) {
-    transition-delay: .2s;
+    transition-delay: .02s;
   }
   #navigation #navbar-menu ul li:nth-of-type(3) {
-    transition-delay: .3s;
+    transition-delay: .03s;
   }
   #navigation #navbar-menu ul li:nth-of-type(4) {
-    transition-delay: .4s;
+    transition-delay: .04s;
   }
   #navigation #navbar-menu ul li:nth-of-type(5) {
-    transition-delay: .5s;
+    transition-delay: .05s;
+  }
+  #navigation #navbar-menu ul li:nth-of-type(6) {
+    transition-delay: .06s;
+  }
+  #navigation #navbar-menu ul li:nth-of-type(7) {
+    transition-delay: .07s;
   }
   #navigation #navbar-menu ul li a {
     text-decoration: none;
@@ -323,7 +329,7 @@
     z-index: -1;
   }
   #navigation #navbar-menu.open {
-    height: 19.125rem;
+    height: 22.25rem;
     padding-top: 1.25rem;
     z-index: -100;
   }
