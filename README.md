@@ -357,6 +357,18 @@ Make sure you add ```Disallow: /admin/``` in your robots.txt just below the ```U
 
 Also **Add your sitemap URL to the robots.txt file**.  In the robots.txt file, theres a line that says ```Sitemap: https://www.yourwebsite/sitemap.xml```. Change the "https://www.yourwebsite" to the URL of your client's site and save and you're done. 
 
+# Adding a _redirects file with Netlify
+
+If you need to add a redirects file, the way it works for Netlify is you create a _redirects file with no file extension.  When you save it, you have the option to select the file type, just scroll all the way down and "no extension" will be at the bottom usually.  Save it to your /src directory. We included a blank _redirects file in the kit for you.  We also added a passthough in the eleventy.js file so it gets picked up by the system.  
+
+To add a redirect, add the file slug of the old domain on the left and the file slug of the new one to the right of that. Like this:
+
+```
+/old-page /new-page
+```
+
+And now that /old-page link will redirect to the /new-page.
+
 # Adding the github to Netlify **IMPORTANT**
 
 Normally, this is pretty straightforward. But there's a slight difference when using this kit. Once you get to step 3 of "Import an existing project from a Git repository", at the bottom there’s a box for "publish directory". Sometimes it populates with "\_site", sometimes it has nothing. Make sure you change it to "public". If you don't do this it won't work.
