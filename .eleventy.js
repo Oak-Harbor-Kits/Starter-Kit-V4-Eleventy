@@ -1,21 +1,70 @@
-// importing a library to allow for easier date conversions (see line 14)
+// imports for the various eleventy plugins (navigation & image)
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 const { DateTime } = require('luxon');
+const Image = require('@11ty/eleventy-img');
+const path = require('path');
+
+// allows the use of {% image... %} to create responsive, optimised images
+async function imageShortcode(src, alt, className, loading, sizes = '(max-width: 64em) 400px, 600px') {
+  // don't pass an alt? chuck it out.
+  if (alt === undefined) {
+    throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
+  }
+
+  // create the metadata for an optimised image
+  let metadata = await Image(src, {
+    widths: [250, 400, 600],
+    formats: ['webp', 'jpeg'],
+    urlPath: '/image/',
+    outputDir: './public/image',
+    filenameFormat: function (id, src, width, format, options) {
+      const extension = path.extname(src);
+      const name = path.basename(src, extension);
+      return `${name}-${width}w.${format}`;
+    },
+  });
+
+  // get the smallest and biggest image for picture/image attributes
+  let lowsrc = metadata.jpeg[0];
+  let highsrc = metadata.jpeg[metadata.jpeg.length - 1];
+
+  // when {% image ... %} is used, this is what's returned
+  return `<picture class="${className}">
+    ${Object.values(metadata)
+      .map((imageFormat) => {
+        return `  <source type="${imageFormat[0].sourceType}" srcset="${imageFormat
+          .map((entry) => entry.srcset)
+          .join(', ')}" sizes="${sizes}">`;
+      })
+      .join('\n')}
+      <img
+        src="${lowsrc.url}"
+        width="${highsrc.width}"
+        height="${highsrc.height}"
+        alt="${alt}"
+        loading="${loading}"
+        decoding="async">
+    </picture>`;
+}
 
 module.exports = function (eleventyConfig) {
+  // adds the navigation plugin for easy navs
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
-  // allows css, assets, and CMS config files to be passed into /public
+
+  // allows css, assets, robots.txt and CMS config files to be passed into /public
   eleventyConfig.addPassthroughCopy('./src/css/**/*.css');
   eleventyConfig.addPassthroughCopy('./src/assets');
   eleventyConfig.addPassthroughCopy('./src/admin');
-  eleventyConfig.addPassthroughCopy('.src/_redirects');
-  // Put robots.txt in root
-  eleventyConfig.addPassthroughCopy({ 'src/robots.txt': '/robots.txt' });
+  eleventyConfig.addPassthroughCopy('./src/_redirects');
+  eleventyConfig.addPassthroughCopy({ './src/robots.txt': '/robots.txt' });
 
   // watch CSS files for changes - doesn't trigger 11ty rebuild
   eleventyConfig.setBrowserSyncConfig({
     files: './public/css/**/*.css',
   });
+
+  // allows the {% image %} shortcode to be used for optimised iamges (in webp if possible)
+  eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
 
   // normally, 11ty will render dates on blog posts in full JSDate format (Fri Dec 02 18:00:00 GMT-0600). That's ugly
   // this filter allows dates to be converted into a normal, locale format. view the docs to learn more (https://moment.github.io/luxon/api-docs/index.html#datetime)
