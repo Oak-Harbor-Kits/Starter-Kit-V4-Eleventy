@@ -10,11 +10,11 @@ eleventyNavigation:
 ---
 
 {% block preload %}
-<link rel="preload" as="image" href="/assets/images/landing.jpg">
+    <link rel="preload" as="image" href="/assets/images/landing.jpg">
 {% endblock %}
 
 {% block pageCSS %}
-<link rel="stylesheet" href="/css/contact.css">
+    <link rel="stylesheet" href="/css/contact.css">
 {% endblock %}
 
 <!-- Enter html code below -->
@@ -25,11 +25,7 @@ eleventyNavigation:
 
 <section id="int-hero">
     <h1 id="home-h">Contact Us</h1>
-    <picture>
-        <source media="(max-width: 600px)" srcset="/assets/images/cabinets2-m.jpg">
-        <source media="(min-width: 601px)" srcset="/assets/images/cabinets2.jpg">
-        <img aria-hidden="true" loading="lazy" decoding="async" src="/assets/images/cabinets2.jpg" alt="" width="400" height="662">
-    </picture>
+    {% image './src/images/cabinets2.jpg', 'cabinets', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 2000px'%}
 </section>
 
 <!-- ============================================ -->
@@ -80,12 +76,7 @@ eleventyNavigation:
             <a class="cs-link" href="">2553 Woodbridge Lane, <span class="cs-block">Boston Ware 120</span></a>
 
             <!-- Background Image-->
-            <picture aria-hidden="true" class="cs-bg-picture">
-                <source media="(max-width: 600px)" srcset="/assets/images/skyscraper-m.jpg">
-                <source media="(min-width: 601px)" srcset="/assets/images/skyscraper.jpg">
-                <img loading="lazy" decoding="async" src="/assets/images/skyscraper.jpg" alt="building" width="542" height="662">
-            </picture>
+            {% image './src/images/skyscraper.jpg', 'building', '', 'lazy'%}
         </div>
     </div>
 </section>
-                                

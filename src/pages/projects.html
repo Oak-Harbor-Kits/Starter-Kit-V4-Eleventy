@@ -10,11 +10,11 @@ eleventyNavigation:
 ---
 
 {% block preload %}
-<link rel="preload" as="image" href="/assets/images/cabinets2-m.jpg">
+    <link rel="preload" as="image" href="/assets/images/cabinets2-m.jpg">
 {% endblock %}
 
 {% block pageCSS %}
-<link rel="stylesheet" href="/css/projects.css">
+    <link rel="stylesheet" href="/css/projects.css">
 {% endblock %}
 
 <!-- Enter html code below -->
@@ -25,11 +25,8 @@ eleventyNavigation:
 
 <section id="int-hero">
     <h1 id="home-h">Our Projects</h1>
-    <picture>
-        <source media="(max-width: 600px)" srcset="/assets/images//cabinets2-m.jpg">
-        <source media="(min-width: 601px)" srcset="/assets/images//cabinets2.jpg">
-        <img aria-hidden="true" loading="lazy" decoding="async" src="/assets/images//cabinets2.jpg" alt="" width="400" height="662">
-    </picture>
+    {% image './src/images/cabinets2.jpg', 'cabinets', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 2000px'%}
+
 </section>
 
 <!-- ============================================ -->
@@ -39,68 +36,32 @@ eleventyNavigation:
 <section id="gallery">
     <div class="cs-container">
         <div class="cs-image-group">
+            <!-- Row 1-->
             <div class="cs-row cs-row-1">
-                <!-- Row 1-->
-                <picture class="cs-picture cs-picture-1">
-                    <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port1-m.jpg">
-                    <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port1.jpg">
-                    <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port1.jpg" alt="new hallway" width="420" height="567">
-                    </picture>
-                    <picture class="cs-picture cs-picture-2">
-                    <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port4-m.jpg">
-                    <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port4.jpg">
-                    <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port4.jpg" alt="new home construction" width="420" height="630">
-                    </picture>
-                    <picture class="cs-picture cs-picture-3">
-                    <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port7-m.jpg">
-                    <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port7.jpg">
-                    <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port7.jpg" alt="building a new wall" width="420" height="512">
-                    </picture>
-                    <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+                {% image './src/images/portfolio/port1.jpg', 'new hallway', 'cs-picture cs-picture-1', 'lazy', '(max-width: 600px) 200px, 400px'%}
+                {% image './src/images/portfolio/port4.jpg', 'new home construction', 'cs-picture cs-picture-2', 'lazy', '(max-width: 600px) 200px, 400px'%}
+                {% image './src/images/portfolio/port7.jpg', 'building a new wall', 'cs-picture cs-picture-3', 'lazy', '(max-width: 600px) 200px, 400px'%}
+                <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
             </div>
             <!-- Row 2 -->
             <div class="cs-row cs-row-2">
-                <picture class="cs-picture cs-picture-1">
-                    <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port2-m.jpg">
-                    <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port2.jpg">
-                    <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port2.jpg" alt="new kitchen" width="420" height="492">
-                    </picture>
-                    <picture class="cs-picture cs-picture-2">
-                    <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port5-m.jpg">
-                    <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port5.jpg">
-                    <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port5.jpg" alt="apartment addition" width="420" height="517">
-                    </picture>
-                    <picture class="cs-picture cs-picture-3">
-                    <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port8-m.jpg">
-                    <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port8.jpg">
-                    <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port8.jpg" alt="kew kitchen cabinets" width="420" height="629">
-                    </picture>
-                    <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+                {% image './src/images/portfolio/port2.jpg', 'new kitchen', 'cs-picture cs-picture-1', 'lazy', '(max-width: 600px) 200px, 400px'%}
+                {% image './src/images/portfolio/port5.jpg', 'apartment addition', 'cs-picture cs-picture-2', 'lazy', '(max-width: 600px) 200px, 400px'%}
+                {% image './src/images/portfolio/port8.jpg', 'kew kitchen cabinets', 'cs-picture cs-picture-3', 'lazy', '(max-width: 600px) 200px, 400px'%}
+                <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
             </div>
             <!-- Row 3 -->
             <div class="cs-row cs-row-3">
-                <picture class="cs-picture cs-picture-1">
-                    <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port3-m.jpg">
-                    <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port3.jpg">
-                    <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port3.jpg" alt="new black window structure" width="420" height="625">
-                    </picture>
-                    <picture class="cs-picture cs-picture-2">
-                    <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port6-m.jpg">
-                    <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port6.jpg">
-                    <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port6.jpg" alt="kitchen rebovation" width="420" height="452">
-                    </picture>
-                    <picture class="cs-picture cs-picture-3">
-                    <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port9-m.jpg">
-                    <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port9.jpg">
-                    <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/port9.jpg" alt="bathroom renovation" width="420" height="629">
-                    </picture>
-                    <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+                {% image './src/images/portfolio/port3.jpg', 'new kitchen', 'cs-picture cs-picture-1', 'lazy', '(max-width: 600px) 200px, 400px'%}
+                {% image './src/images/portfolio/port6.jpg', 'apartment addition', 'cs-picture cs-picture-2', 'lazy', '(max-width: 600px) 200px, 400px'%}
+                {% image './src/images/portfolio/port9.jpg', 'kew kitchen cabinets', 'cs-picture cs-picture-3', 'lazy', '(max-width: 600px) 200px, 400px'%}
+
+                <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
             </div>
         </div>
         <a href="/contact" class="button-solid">Get Free Quote</a>
     </div>
 </section>
-                                
 
 <!-- ============================================ -->
 <!--             Final Call to Action             -->
@@ -114,9 +75,5 @@ eleventyNavigation:
         </p>
         <a href="/contact.html" class="button-solid">Free Estimate</a>
     </div>
-    <picture>
-        <source media="(max-width: 600px)" srcset="/assets/images//cabinets2-m.webp">
-        <source media="(min-width: 601px)" srcset="/assets/images//cabinets2.jpg">
-        <img aria-hidden="true" loading="lazy" decoding="async" src="/assets/images//cabinets2.jpg" alt="kitchen cabinets" width="1920" height="1280">
-        </picture>
+    {% image './src/images/cabinets2.jpg', 'kitchen cabinets', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 2000px'%}
 </section>

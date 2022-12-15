@@ -10,11 +10,11 @@ eleventyNavigation:
 ---
 
 {% block preload %}
-<link rel="preload" as="image" href="/assets/images/cabinets2-m.jpg">
+    <link rel="preload" as="image" href="/assets/images/cabinets2-m.jpg">
 {% endblock %}
 
 {% block pageCSS %}
-<link rel="stylesheet" href="/css/about.css">
+    <link rel="stylesheet" href="/css/about.css">
 {% endblock %}
 
 <!-- Enter html code below -->
@@ -25,11 +25,7 @@ eleventyNavigation:
 
 <section id="int-hero">
     <h1 id="home-h">About Us</h1>
-    <picture>
-        <source media="(max-width: 600px)" srcset="/assets/images/cabinets2-m.jpg">
-        <source media="(min-width: 601px)" srcset="/assets/images/cabinets2.jpg">
-        <img aria-hidden="true" decoding="async" src="/assets/images/cabinets2.jpg" alt="cabinets" width="400" height="662">
-    </picture>
+    {% image './src/images/cabinets2.jpg', 'cabinets', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 2000px'%}
 </section>
 
 <!-- ============================================ -->
@@ -40,16 +36,8 @@ eleventyNavigation:
     <div class="cs-container">
         <!-- Left Image Section -->
         <div class="cs-left">
-            <picture class="cs-picture cs-picture1" aria-hidden="true">
-                <source media="(max-width: 600px)" srcset="/assets/images/cabinets2-m.webp">
-                <source media="(min-width: 601px)" srcset="/assets/images/cabinets2.jpg">
-                <img loading="lazy" decoding="async" src="/assets/images/cabinets2.jpg" alt="house" width="522" height="581">
-            </picture>
-            <picture class="cs-picture cs-picture2" aria-hidden="true">
-                <source media="(max-width: 600px)" srcset="/assets/images/construction.jpg">
-                <source media="(min-width: 601px)" srcset="/assets/images/construction.jpg">
-                <img loading="lazy" decoding="async" src="/assets/images/construction.jpg" alt="house" width="414" height="400">
-            </picture>
+            {% image './src/images/cabinets2.jpg', 'cabinets', 'cs-picture cs-picture1', 'lazy'%}
+            {% image './src/images/construction.jpg', 'house', 'cs-picture cs-picture2', 'lazy'%}
         </div>
         <!-- Right Content Section-->
         <div class="cs-right">
@@ -86,9 +74,5 @@ eleventyNavigation:
         </p>
         <a href="/contact.html" class="button-solid">Free Estimate</a>
     </div>
-    <picture>
-        <source media="(max-width: 600px)" srcset="/assets/images/cabinets2-m.webp">
-        <source media="(min-width: 601px)" srcset="/assets/images/cabinets2.jpg">
-        <img aria-hidden="true" loading="lazy" decoding="async" src="/assets/images/cabinets2.jpg" alt="kitchen cabinets" width="1920" height="1280">
-        </picture>
+    {% image './src/images/cabinets2.jpg', 'kitchen cabinets', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 2000px'%}
 </section>

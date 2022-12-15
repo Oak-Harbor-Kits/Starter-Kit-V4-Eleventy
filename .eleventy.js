@@ -5,18 +5,18 @@ const Image = require('@11ty/eleventy-img');
 const path = require('path');
 
 // allows the use of {% image... %} to create responsive, optimised images
-async function imageShortcode(src, alt, className, loading, sizes = '(max-width: 64em) 400px, 600px') {
-  // don't pass an alt? chuck it out.
+async function imageShortcode(src, alt, className, loading, sizes = '(max-width: 600px) 400px, 850px') {
+  // don't pass an alt? chuck it out. passing an empty string is okay though
   if (alt === undefined) {
     throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
   }
 
   // create the metadata for an optimised image
   let metadata = await Image(src, {
-    widths: [250, 400, 600],
+    widths: [200, 400, 850, 2000, 2500],
     formats: ['webp', 'jpeg'],
-    urlPath: '/image/',
-    outputDir: './public/image',
+    urlPath: '/images/',
+    outputDir: './public/images',
     filenameFormat: function (id, src, width, format, options) {
       const extension = path.extname(src);
       const name = path.basename(src, extension);
