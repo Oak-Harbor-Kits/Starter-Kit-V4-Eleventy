@@ -12,7 +12,7 @@ async function imageShortcode(src, alt, className, loading, sizes = '(max-width:
   }
 
   // create the metadata for an optimised image
-  let metadata = await Image(`./src${src}`, {
+  let metadata = await Image(`${src}`, {
     widths: [200, 400, 850, 1920, 2500],
     formats: ['webp', 'jpeg'],
     urlPath: '/images/',
@@ -58,8 +58,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/_redirects');
   eleventyConfig.addPassthroughCopy({ './src/robots.txt': '/robots.txt' });
 
-  // watch CSS files for changes - doesn't trigger 11ty rebuild
+  // open on npm start and watch CSS files for changes - doesn't trigger 11ty rebuild
   eleventyConfig.setBrowserSyncConfig({
+    open: true,
     files: './public/css/**/*.css',
   });
 

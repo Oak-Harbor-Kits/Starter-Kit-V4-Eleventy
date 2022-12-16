@@ -3,8 +3,8 @@ layout: 'base.html'
 description: 'Meta description for the page'
 metaTitle: 'Title that shows up on google searches'
 tagTitle: 'Projects'
-preloadImg: 'cabinets2-1920w.webp'
-preloadCSS: 'projects.css'
+preloadImg: '/images/cabinets2-1920w.webp'
+preloadCSS: '/css/projects.css'
 permalink: 'projects/'
 eleventyNavigation:
     key: Projects
@@ -18,8 +18,8 @@ eleventyNavigation:
 <!-- ============================================ -->
 
 <section id="int-hero">
-    <h1 id="home-h">Our Projects</h1>
-    {% image '/images/cabinets2.jpg', 'cabinets', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 1920px'%}
+  <h1 id="home-h">Our Projects</h1>
+  {% image './src/images/cabinets2.jpg', 'cabinets', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 1920px'%}
 
 </section>
 
@@ -28,33 +28,33 @@ eleventyNavigation:
 <!-- ============================================ -->
 
 <section id="gallery">
-    <div class="cs-container">
-        <div class="cs-image-group">
-            <!-- Row 1-->
-            <div class="cs-row cs-row-1">
-                {% image '/images/portfolio/port1.jpg', 'new hallway', 'cs-picture cs-picture-1', 'lazy', '(max-width: 600px) 200px, 400px'%}
-                {% image '/images/portfolio/port4.jpg', 'new home construction', 'cs-picture cs-picture-2', 'lazy', '(max-width: 600px) 200px, 400px'%}
-                {% image '/images/portfolio/port7.jpg', 'building a new wall', 'cs-picture cs-picture-3', 'lazy', '(max-width: 600px) 200px, 400px'%}
-                <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
-            </div>
-            <!-- Row 2 -->
-            <div class="cs-row cs-row-2">
-                {% image '/images/portfolio/port2.jpg', 'new kitchen', 'cs-picture cs-picture-1', 'lazy', '(max-width: 600px) 200px, 400px'%}
-                {% image '/images/portfolio/port5.jpg', 'apartment addition', 'cs-picture cs-picture-2', 'lazy', '(max-width: 600px) 200px, 400px'%}
-                {% image '/images/portfolio/port8.jpg', 'kew kitchen cabinets', 'cs-picture cs-picture-3', 'lazy', '(max-width: 600px) 200px, 400px'%}
-                <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
-            </div>
-            <!-- Row 3 -->
-            <div class="cs-row cs-row-3">
-                {% image '/images/portfolio/port3.jpg', 'new kitchen', 'cs-picture cs-picture-1', 'lazy', '(max-width: 600px) 200px, 400px'%}
-                {% image '/images/portfolio/port6.jpg', 'apartment addition', 'cs-picture cs-picture-2', 'lazy', '(max-width: 600px) 200px, 400px'%}
-                {% image '/images/portfolio/port9.jpg', 'kew kitchen cabinets', 'cs-picture cs-picture-3', 'lazy', '(max-width: 600px) 200px, 400px'%}
+  <div class="cs-container">
+    <div class="cs-image-group">
+      <!-- Row 1-->
+      <div class="cs-row cs-row-1">
+        {% image './src/images/portfolio/port1.jpg', 'new hallway', 'cs-picture cs-picture-1', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image './src/images/portfolio/port4.jpg', 'new home construction', 'cs-picture cs-picture-2', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image './src/images/portfolio/port7.jpg', 'building a new wall', 'cs-picture cs-picture-3', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+      </div>
+      <!-- Row 2 -->
+      <div class="cs-row cs-row-2">
+        {% image './src/images/portfolio/port2.jpg', 'new kitchen', 'cs-picture cs-picture-1', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image './src/images/portfolio/port5.jpg', 'apartment addition', 'cs-picture cs-picture-2', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image './src/images/portfolio/port8.jpg', 'kew kitchen cabinets', 'cs-picture cs-picture-3', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+      </div>
+      <!-- Row 3 -->
+      <div class="cs-row cs-row-3">
+        {% image './src/images/portfolio/port3.jpg', 'new kitchen', 'cs-picture cs-picture-1', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image './src/images/portfolio/port6.jpg', 'apartment addition', 'cs-picture cs-picture-2', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image './src/images/portfolio/port9.jpg', 'kew kitchen cabinets', 'cs-picture cs-picture-3', 'lazy', '(max-width: 600px) 200px, 400px'%}
 
-                <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
-            </div>
-        </div>
-        <a href="/contact" class="button-solid">Get Free Quote</a>
+        <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+      </div>
     </div>
+    <a href="/contact" class="button-solid">Get Free Quote</a>
+  </div>
 </section>
 
 <!-- ============================================ -->
@@ -62,12 +62,12 @@ eleventyNavigation:
 <!-- ============================================ -->
 
 <section id="cta">
-    <div class="container">
-        <h2 class="title">Get It Done <br> With Us Today</h2>
-        <p>
+  <div class="container">
+    <h2 class="title">Get It Done <br> With Us Today</h2>
+    <p>
             Say something catchy, informative, and encouraging to click the button to go to the contact page.  I like to add these to the bottom of all pages.
         </p>
-        <a href="/contact.html" class="button-solid">Free Estimate</a>
-    </div>
-    {% image '/images/cabinets2.jpg', 'kitchen cabinets', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 1920px'%}
+    <a href="/contact.html" class="button-solid">Free Estimate</a>
+  </div>
+  {% image './src/images/cabinets2.jpg', 'kitchen cabinets', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 1920px'%}
 </section>
