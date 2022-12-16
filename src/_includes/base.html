@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--Swap our for actual link-->
-    <link rel="canonical" href="https://www.website.com/{{ page.fileSlug }}">
+    <link rel="canonical" href="https://{{ client.domain }}{{ page.url }}">
 
     <meta name="description" content="{{ description }}">
     <meta name="keywords" content="">
@@ -14,10 +14,10 @@
     <!--Social Media Display-->
     <meta property="og:title" content="{{ metaTitle }}"/>
     <meta property="og:description" content="{{ description }}"/>
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ canonical }}"/>
-    <meta property="og:image" content="assets/images/social.jpg"/>
-    <meta property="og:image:secure_url" content="assets/images/social.jpg"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://{{ client.domain }}{{ page.url }}"/>
+    <meta property="og:image" content="/images/social.jpg"/>
+    <meta property="og:image:secure_url" content="/images/social.jpg"/>
 
     <!--Favicons-->
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
@@ -28,22 +28,31 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Preload -->
-    {{ preload | safe }}
-    <link rel="preload" as="image" href="assets/images/logo-light.png">
-    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/roboto-v29-latin-regular.woff2" crossorigin>
-    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/roboto-v29-latin-700.woff2" crossorigin>
+    <link rel="preload" as="image" href="/assets/logo-light.png">
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-regular.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-700.woff2" crossorigin>
 
     <link rel="stylesheet" href="/css/root.css">
     <link rel="stylesheet" href="/css/dark.css">
 
+    <link rel="preload" as="image" href="/images/{{ preloadImg }}"/>
+
     <!-- Loading in page specific CSS sheets from css block -->
-    {{ pageCSS | safe }}
+    <link rel="stylesheet" href="/css/critical.css"/>
+    <link rel="stylesheet" href="/css/{{ preloadCSS }}">
 
     <!--Put analytics tag here at the bottom to prevent it from render blocking-->
 
-    <title>{{ tagTitle }}</title>
-</head>
-<body>
+    <!-- For home page, use full title, including location for SEO. Other pages should just include the page name -->
+    <title>
+      {% if page.url == '/'%}
+        {{ client.name }} | {{ tagTitle }} | {{ client.address.city }}, {{ client.address.county }}
+      {% else %}
+        {{ tagTitle }} | {{ client.name }}
+      {% endif %}
+    </title>
+  </head>
+  <body>
     <!--Screen reader skip main nav-->
     <a class="skip" aria-label="skip to main content" href="#main">Click To Skip To Main Content</a>
 
@@ -60,15 +69,21 @@
         animations with the navbar
     -->
     <script defer>
-        document.addEventListener('scroll', (e) => { 
-            const scroll = document.documentElement.scrollTop;
-            if(scroll >= 100){
-        document.querySelector('body').classList.add('scroll')
-            } else {
-            document.querySelector('body').classList.remove('scroll')
-            }
-        });
+      document.addEventListener('scroll', (e) => {
+        const scroll = document.documentElement.scrollTop;
+        if (scroll >= 100) {
+          document
+            .querySelector('body')
+            .classList
+            .add('scroll')
+        } else {
+          document
+            .querySelector('body')
+            .classList
+            .remove('scroll')
+        }
+      });
     </script>
 
-</body>
+  </body>
 </html>

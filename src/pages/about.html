@@ -2,20 +2,14 @@
 layout: 'base.html'
 description: "Meta description for the page"
 meta-title: 'Title that shows up on google searches'
-tagTitle: 'Company Name | What They Do | Town and State'
+tagTitle: 'About'
+preloadImg: 'cabinets2-1920w.webp'
+preloadCSS: 'about.css'
 permalink: 'about/'
 eleventyNavigation:
     key: About Us
     order: 200
 ---
-
-{% block preload %}
-    <link rel="preload" as="image" href="/assets/images/cabinets2-m.jpg">
-{% endblock %}
-
-{% block pageCSS %}
-    <link rel="stylesheet" href="/css/about.css">
-{% endblock %}
 
 <!-- Enter html code below -->
 
@@ -25,7 +19,7 @@ eleventyNavigation:
 
 <section id="int-hero">
     <h1 id="home-h">About Us</h1>
-    {% image './src/images/cabinets2.jpg', 'cabinets', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 2000px'%}
+    {% image '/images/cabinets2.jpg', 'cabinets', '', 'lazy', '(max-width: 850px) 850px, 1920px'%}
 </section>
 
 <!-- ============================================ -->
@@ -36,8 +30,8 @@ eleventyNavigation:
     <div class="cs-container">
         <!-- Left Image Section -->
         <div class="cs-left">
-            {% image './src/images/cabinets2.jpg', 'cabinets', 'cs-picture cs-picture1', 'lazy'%}
-            {% image './src/images/construction.jpg', 'house', 'cs-picture cs-picture2', 'lazy'%}
+            {% image '/images/cabinets2.jpg', 'cabinets', 'cs-picture cs-picture1', 'lazy'%}
+            {% image '/images/construction.jpg', 'house', 'cs-picture cs-picture2', 'lazy'%}
         </div>
         <!-- Right Content Section-->
         <div class="cs-right">
@@ -74,5 +68,5 @@ eleventyNavigation:
         </p>
         <a href="/contact.html" class="button-solid">Free Estimate</a>
     </div>
-    {% image './src/images/cabinets2.jpg', 'kitchen cabinets', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 2000px'%}
+    {% image '/images/cabinets2.jpg', 'kitchen cabinets', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 1920'%}
 </section>

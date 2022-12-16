@@ -2,20 +2,14 @@
 layout: 'base.html'
 description: 'Meta description for the page'
 metaTitle: 'Title that shows up on google searches'
-tagTitle: 'Company Name | What They Do | Town and State'
+tagTitle: 'Contact'
+preloadImg: 'cabinets2-1920w.webp'
+preloadCSS: 'contact.css'
 permalink: 'contact/'
 eleventyNavigation:
     key: Contact
     order: 600
 ---
-
-{% block preload %}
-    <link rel="preload" as="image" href="/assets/images/landing.jpg">
-{% endblock %}
-
-{% block pageCSS %}
-    <link rel="stylesheet" href="/css/contact.css">
-{% endblock %}
 
 <!-- Enter html code below -->
 
@@ -25,7 +19,7 @@ eleventyNavigation:
 
 <section id="int-hero">
     <h1 id="home-h">Contact Us</h1>
-    {% image './src/images/cabinets2.jpg', 'cabinets', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 2000px'%}
+    {% image '/images/cabinets2.jpg', 'cabinets', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 1920px'%}
 </section>
 
 <!-- ============================================ -->
@@ -76,7 +70,7 @@ eleventyNavigation:
             <a class="cs-link" href="">2553 Woodbridge Lane, <span class="cs-block">Boston Ware 120</span></a>
 
             <!-- Background Image-->
-            {% image './src/images/skyscraper.jpg', 'building', '', 'lazy'%}
+            {% image '/images/skyscraper.jpg', 'building', '', 'lazy'%}
         </div>
     </div>
 </section>

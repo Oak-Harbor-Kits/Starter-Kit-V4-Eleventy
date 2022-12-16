@@ -196,7 +196,7 @@ The "preload" and "pageCSS" are variables I chose to represent that block. We us
 ```
 <!-- Preload -->
 {{ preload | safe }}
-<link rel="preload" as="image" href="assets/images/logo-light.png">
+<link rel="preload" as="image" href="/images/logo-light.png">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/roboto-v29-latin-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/roboto-v29-latin-700.woff2" crossorigin>
 
