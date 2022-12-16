@@ -4,12 +4,12 @@
 
 - [Overview](#overview)
 - [Features](#features)
-- [File Structure](#file)
-- [How it Works](#how)
-- [Using the Kit](#using)
-- [Converting a Static Site](#converting)
+- [File Structure](#file-structure)
+- [How it Works](#how-it-works)
+- [Using the Kit](#using-the-kit)
+- [Converting a Static Site](#converting-a-static-site)
 - [Blog](#blog)
-- [Things to do before deployment](#things)
+- [Things to do before deployment](#pre-deployment-things)
 
 # Overview
 <a name="#overview" />
@@ -41,7 +41,7 @@ If any of the above doesn't make sense, don't worry! It is all explained in the 
 
 
 # File Structure
-<a name="#file" />
+<a name="#file-structure" />
 Before diving into the nitty gritty parts of using the kit, it is useful to understand how the project is structured, so you can expand on it in the right way.
 
 ### root
@@ -74,14 +74,14 @@ You may be wondering why there are two places to store images. This is to do wit
 Because of how the build process works, and how the names of the image files change when being optimised, images from the CMS cannot be optimised with eleventy. On top of that, some images, like the logo, don't need to be resized or optimised, and thus can live here.
 
 # How it works under the hood:
-<a name="#how" />
+<a name="#how-it-works" />
 
 https://youtu.be/UDU38awKQeg
 
 We have a base.html file that has all the code that will be repeated on every page, like the head tag and its meta data, navigation, footer, etc and we use template blocks (like little variables) to insert the content for each page's info into that base file. It loads the content, meta tag info, inserts any extra link tags or other tags that are unique to that page needed to display it properly (like individual page css files), and basically fills in the blanks on the base.html page template.
 
 # Using the Kit
-<a name="#using" />
+<a name="#using-the-kit" />
 
 ### Getting Started
 <a name="#getting-started" />
@@ -176,7 +176,7 @@ There may be a case where you need to use an image or image source without using
 The image gets moved into /public/images, and is renamed. In the .eleventy.js file, the name structure is given as `{name}-{width}w.{format}`. So a 400px wide jpg originally called picture.jpg will be returned as picture-400w.jpg. It is that which you use in your URLs. So, when linking to an image as a CSS background image, you should use `background-image: url(/images/picture-400w.jpg)`.
 
 # How to convert a static HTML and CSS site into the new system:
-<a name="#converting" />
+<a name="#converting-a-static-site" />
 https://youtu.be/v6LaVds4yeU
 <br>
 In this video above, I show you how to take a real life project of mine that needs to move the blog over to the Eleventy + Netlify CMS blog system. I go over how to transfer static html and css files into the Eleventy Static Site Generator, break up the header and footer into reusable components to add on all pages, creating a base file, adding the old pages, and adding the old blog entries.
@@ -355,7 +355,7 @@ Once all blog posts (if needed) have been added or transferred over, it's worth 
 If you get any errors, the most common reason is because the port 8081 is used. The CMS server runs off this port (although you can only access it with localhost:8080/admin), and won't try another port if that is taken. Make sure that port isn't taken by another server running and try again.
 
 # Things to do before deployment
-<a name="#things" />
+<a name="#pre-deployment-things" />
 ### Adding the sitemap
 
 If you need to create a sitemap, use this tool to do so and download the file: https://www.xml-sitemaps.com/
