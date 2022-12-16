@@ -7,7 +7,7 @@ permalink: 'pageName/'
 ---
 
 {% block preload %}
-<link rel="preload" as="image" href="/assets/images/landing.jpg">
+<link rel="preload" as="image" href="/images/landing.jpg">
 {% endblock %}
 
 {% block pageCSS %}

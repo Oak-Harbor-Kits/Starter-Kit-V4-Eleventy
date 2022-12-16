@@ -187,7 +187,7 @@
     display: block;
     height: 69.25rem;
     width: 125rem;
-    background: url("..assets/images/cta-squares.svg");
+    background: url("/assets/svgs/cta-squares.svg");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;

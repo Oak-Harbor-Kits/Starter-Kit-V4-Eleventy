@@ -8,7 +8,7 @@ date: 2022-07-18T15:46:45.249Z
 tags:
   - post
   - featured
-image: /assets/images/cabinets2-m.jpg
+image: /images/cabinets2-m.jpg
 imageAlt: Solar Panles
 ---
 His etudes and concertos are performed by the world’s leading pianists, and they are famed for their difficulty. Not to mention the International Chopin Piano Competition, an annual affair in Warsaw that springboards the careers of many famous pianists.
