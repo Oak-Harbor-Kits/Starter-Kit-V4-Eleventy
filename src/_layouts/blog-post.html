@@ -1,30 +1,20 @@
 ---
 layout: 'base.html'
+preloadCSS: '/css/blog.css'
 eleventyComputed:
-    canonical: 'https://www.yourwebsite.com/{{ pageName }}'
-    description: "{{ blogDescription }}"
+    description: '{{ blogDescription }}'
     metaTitle: '{{ blogTitle }}'
     tagTitle: '{{ titleTag }}'
+    preloadImg: '{{ image }}'
+    permalink: '/blog/{{ pageName | slug }}/index.html'
 ---
-
-{% block preload %}
-    <link rel="preload" as="image" href="{{ image }}">
-{% endblock %}
-
-{% block pageCSS %}
-    <link rel="stylesheet" href="/css/blog.css">
-{% endblock %}
 
 <!-- ============================================ -->
 <!--                    LANDING                   -->
 <!-- ============================================ -->
 
 <section id="int-hero">
-    <picture>
-        <source media="(max-width: 600px)" srcset="/assets/images/cabinets2-m.jpg">
-        <source media="(min-width: 601px)" srcset="/assets/images/cabinets2.jpg">
-        <img aria-hidden="true" decoding="async" src="/assets/images/cabinets2.jpg" alt="cabinets" width="400" height="662">
-    </picture>
+    {% image './src/images/cabinets2.jpg', 'cabinets', '', 'lazy', '(max-width: 850px) 850px, 1920px'%}
 </section>
 
 <!-- ============================================ -->
@@ -43,6 +33,7 @@ eleventyComputed:
             <picture class="blog-mainImage">
                 <img src="{{ image }}" alt="{{ imageAlt }}" width="795" height="400" decoding="async"/>
             </picture>
+
             <!--Article Info-->
             <div class="article-group">
                 <h1 class="blog-h1">{{ blogTitle }}</h1>
