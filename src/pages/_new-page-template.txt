@@ -4,7 +4,7 @@ description: "Meta description for the page"
 metaTitle: 'Title that shows up on social OG tags'
 tagTitle: 'Title that shows up on google, and is concatenated with | {{ client.name }}'
 preloadImg: '/images/imageName.format'
-preloadCSS: 'fileName.css'
+preloadCSS: '/css/fileName.css'
 permalink: 'page/'
 eleventyNavigation:
     key: Navigation Name

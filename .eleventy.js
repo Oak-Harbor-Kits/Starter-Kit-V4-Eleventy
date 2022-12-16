@@ -5,6 +5,7 @@ const Image = require('@11ty/eleventy-img');
 const path = require('path');
 
 // allows the use of {% image... %} to create responsive, optimised images
+// CHANGE DEFAULT MEDIA QUERIES AND WIDTHS
 async function imageShortcode(src, alt, className, loading, sizes = '(max-width: 600px) 400px, 850px') {
   // don't pass an alt? chuck it out. passing an empty string is okay though
   if (alt === undefined) {
