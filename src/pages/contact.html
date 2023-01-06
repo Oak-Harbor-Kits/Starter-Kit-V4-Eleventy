@@ -1,10 +1,11 @@
 ---
 layout: 'base.html'
+canonical: 'https://example.app/contact/'
 description: 'Meta description for the page'
 metaTitle: 'Title that shows up on google searches'
 tagTitle: 'Contact'
 preloadImg: '/images/cabinets2-1920w.webp'
-preloadCSS: '/css/contact.css'
+pageCSS: 'contact.css'
 permalink: 'contact/'
 eleventyNavigation:
     key: Contact
@@ -70,7 +71,7 @@ eleventyNavigation:
       <a class="cs-link" href="">2553 Woodbridge Lane, <span class="cs-block">Boston Ware 120</span></a>
 
       <!-- Background Image-->
-      {% image './src/images/skyscraper.jpg', 'building', '', 'lazy'%}
+      {% image './src/images/skyscraper.jpg', 'building', 'cs-bg-picture', 'lazy'%}
     </div>
   </div>
 </section>
