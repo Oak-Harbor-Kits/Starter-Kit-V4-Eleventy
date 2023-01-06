@@ -2,8 +2,7 @@
 pageName: blog-template
 blogTitle: How Much Does a Solar Panel Installation Cost?
 titleTag: How Much Does a Solar Panel Installation Cost?
-blogDescription: Curious about solar panel pricing? Find out everything you want
-  to know about solar pricing from a transparent solar installation company.
+blogDescription: Curious about solar panel pricing? Find out everything you want to know about solar pricing from a transparent solar installation company.
 author: Joe Mendez
 date: 2022-12-16T19:40:18.253Z
 tags:
