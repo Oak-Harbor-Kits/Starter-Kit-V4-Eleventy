@@ -389,6 +389,18 @@
             height: 356/16rem;
             padding-top: 20/16rem;
             z-index: -100;
+            overflow: visible;
+
+
+            &:before {
+                content: '';
+                width: 100vw;
+                height: 100vh;
+                position: absolute;
+                top: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                transition: 0;
+              }
 
             ul {
                 li {
