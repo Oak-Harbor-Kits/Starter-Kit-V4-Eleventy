@@ -1,0 +1,69 @@
+---
+layout: 'base.html'
+preloadCSS: '/css/blog.css'
+eleventyComputed:
+    description: '{{ blogDescription }}'
+    metaTitle: '{{ blogTitle }}'
+    tagTitle: '{{ titleTag }}'
+    preloadImg: '{{ image }}'
+    permalink: '/blog/{{ pageName | slug }}/index.html'
+---
+
+<!-- ============================================ -->
+<!--                    LANDING                   -->
+<!-- ============================================ -->
+
+<section id="int-hero">
+    {% image './src/images/cabinets2.jpg', 'cabinets', '', 'lazy', '(max-width: 850px) 850px, 1920px'%}
+</section>
+
+<!-- ============================================ -->
+<!--              Main Blog Content               -->
+<!-- ============================================ -->
+
+<div class="blog-container main-content-wrapper">
+    <!--Main content -->
+    <div class="main-content">
+        <!-- ============================================ -->
+        <!--                  Blog Article                -->
+        <!-- ============================================ -->
+
+        <article class="blog-article">
+            <!--Main Article Image-->
+            <picture class="blog-mainImage">
+                <img src="{{ image }}" alt="{{ imageAlt }}" width="795" height="400" decoding="async"/>
+            </picture>
+
+            <!--Article Info-->
+            <div class="article-group">
+                <h1 class="blog-h1">{{ blogTitle }}</h1>
+                <div class="blog-authorGroup">
+                    <!--Author Image-->
+                    <picture class="blog-author-img">
+                        <img
+            src="/assets/svgs/profile.svg"
+            alt="house"
+            width="32"
+            height="32"
+            decoding="async"
+/>
+                    </picture>
+                    <span class="blog-author">{{ author }}</span>
+                    <span aria-hidden="true" class="blog-dot"></span>
+                    <!--Blog Date-->
+                    <span class="blog-date">{{ date | postDate }}</span>
+                </div>
+            </div>
+            <section id="blog-content">
+                {{ content | safe }}
+            </section>
+        </article>
+    </div>
+    <!-- End .main-content -->
+
+    <!-- ============================================ -->
+    <!--                   Sidebar                    -->
+    <!-- ============================================ -->
+
+    {% include 'featured-post.html' %}
+</div>
