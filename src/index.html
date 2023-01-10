@@ -4,7 +4,7 @@ canonical: 'https://example.app'
 description: 'Meta description for the page'
 metaTitle: 'Title that shows up on google searches'
 tagTitle: 'Pixel Perfect Websites'
-preloadImg: '/images/landing-1920w.webp'
+preloadImg: './assets/images/landing.jpg'
 pageCSS: 'local.css'
 permalink: '/'
 eleventyNavigation:
@@ -300,7 +300,7 @@ eleventyNavigation:
     </p>
     <a href="/contact" class="button-solid">Get an Estimate Now</a>
   </div>
-  {% image './src/images/cabinets2.jpg', 'kitchen cabinets', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 1920px'%}
+  {% image './src/images/cabinets2.jpg', 'kitchen cabinets', 'cs-bg-picture', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 1920px'%}
 </section>
 
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
