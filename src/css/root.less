@@ -742,6 +742,11 @@
             width: 100%;
             z-index: -2;
 
+            #cta-image{
+                border-top-left-radius: clamp(.375em, 1.5vw, .75em);
+                border-top-right-radius: clamp(.375em, 1.5vw, .75em);
+            }
+
             img {
                 position: absolute;
                 top: 0;
@@ -1056,4 +1061,14 @@
             background: #061623;
         }
     }
+}
+
+
+
+
+// testing
+
+.cta-image{
+    border-top-left-radius: clamp(.375em, 1.5vw, .75em);
+border-top-right-radius: clamp(.375em, 1.5vw, .75em);
 }

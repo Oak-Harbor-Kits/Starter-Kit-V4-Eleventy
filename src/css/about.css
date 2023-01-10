@@ -10,10 +10,19 @@
     width: 100%;
     max-width: 80rem;
     margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     row-gap: 2.5rem;
   }
   #sbs .cs-left {
@@ -38,7 +47,8 @@
     height: 100%;
     width: 100%;
     /* makes image act like a background image */
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   #sbs .cs-picture1 {
     width: 32.625em;
@@ -50,7 +60,8 @@
     width: 25.875em;
     height: 25em;
     background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
     /* 6px - 12px */
     border: clamp(0.375em, 1.5vw, 0.75em) solid #ffffff;
     right: 0;
@@ -139,13 +150,20 @@
 /* Desktop - 1024px */
 @media only screen and (min-width: 64em) {
   #sbs .cs-container {
-    flex-flow: row;
-    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row;
+            flex-flow: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     gap: 3.25rem;
   }
   #sbs .cs-left {
     font-size: min(1.2vw, 1em);
-    flex: none;
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
   }
   #sbs .cs-right {
     margin: 0;
@@ -221,7 +239,8 @@
     left: 0;
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   #cta .title {
     font-weight: 900;
@@ -270,7 +289,8 @@
     opacity: 1;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
     z-index: -3;
   }
   #cta .container {
@@ -280,7 +300,8 @@
   #cta picture {
     width: 90.0625%;
     left: 50%;
-    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
   }
   #cta picture:before {
     content: '';
