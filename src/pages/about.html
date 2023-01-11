@@ -1,10 +1,11 @@
 ---
 layout: 'base.html'
+canonical: 'https://example.app/about/'
 description: "Meta description for the page"
 metaTitle: 'Title that shows up on google searches'
 tagTitle: 'About'
 preloadImg: '/images/cabinets2-1920w.webp'
-preloadCSS: '/css/about.css'
+pageCSS: 'about.css'
 permalink: 'about/'
 eleventyNavigation:
     key: About Us
@@ -68,5 +69,5 @@ eleventyNavigation:
         </p>
     <a href="/contact.html" class="button-solid">Free Estimate</a>
   </div>
-  {% image './src/images/cabinets2.jpg', 'kitchen cabinets', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 1920'%}
+  {% image './src/images/cabinets2.jpg', 'kitchen cabinets', 'cs-picture', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 1920'%}
 </section>
