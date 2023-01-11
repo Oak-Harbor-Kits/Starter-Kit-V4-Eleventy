@@ -7,7 +7,7 @@ author: Joe Mendez
 date: 2022-12-16T19:45:03.587Z
 tags:
   - post
-image: /assets/images/landing.jpg
+image: /assets/images/blog/landing.jpg
 imageAlt: Mountains
 ---
 Testing testing 1 2 3
