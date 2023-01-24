@@ -4,45 +4,32 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <!--Swap our for actual link-->
-        <link rel="canonical" href="https://{{ client.domain }}{{ page.url }}">
-
+        <link rel="canonical" href="{{ canonical }}">
         <meta name="description" content="{{ description }}">
-        <meta name="keywords" content="">
-
-        <!--Social Media Display-->
-        <meta property="og:title" content="{{ metaTitle }}"/>
-        <meta property="og:description" content="{{ description }}"/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:url" content="https://{{ client.domain }}{{ page.url }}"/>
-        <meta property="og:image" content="/images/social.jpg"/>
-        <meta property="og:image:secure_url" content="/images/social.jpg"/>
-
+        <!-- Add global keywords, the "keyword" tag grabs keywords from other pages' -->
+        <meta name="keywords" content="{{ keywords }}">
+        <!-- Preload critial CSS -->
+        <link rel="preload" href="/css/root.css" as="style">
+        <!-- Loading all CSS -->
+        <link rel="stylesheet" href="/css/root.css">
+        <link rel="stylesheet" href="/css/dark.css">
+        <!-- pageCSS is a variable defined on html pages -->
+        <link rel="stylesheet" href="/css/{{ pageCSS }}">
         <!--Favicons-->
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png?v1">
-        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png" media="(prefers-color-scheme: light)">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32-white.png" media="(prefers-color-scheme: dark)">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png" media="(prefers-color-scheme: light)">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16-white.png" media="(prefers-color-scheme: dark)">
         <link rel="manifest" href="/assets/favicons/site.webmanifest">
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
-
-        <!-- Preload -->
-        <link rel="preload" as="image" href="/assets/logo-light.png">
+        <!-- Preload image and fonts-->
+        <link rel="preload" as="image" href="/assets/images/logo-light.png">
         <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-regular.woff2" crossorigin>
         <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-700.woff2" crossorigin>
-
-        <link rel="stylesheet" href="/css/root.css">
-        <link rel="stylesheet" href="/css/dark.css">
-
         <link rel="preload" as="image" href="{{ preloadImg }}"/>
-
-        <!-- Loading in page specific CSS sheets from css block -->
-        <link rel="stylesheet" href="/css/critical.css"/>
-        <link rel="stylesheet" href="{{ preloadCSS }}">
-
         <!--Put analytics tag here at the bottom to prevent it from render blocking-->
-
         <!-- For home page, use full title, including location for SEO. Other pages should just include the page name -->
         <title>
             {% if page.url == '/'%}
@@ -55,20 +42,17 @@
     <body>
         <!--Screen reader skip main nav-->
         <a class="skip" aria-label="skip to main content" href="#main">Click To Skip To Main Content</a>
-
+        <button onclick="topFunction()" id="toTopBtn" title="Go to top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="6 15 12 9 18 15" /></svg>
+        </button>
         {% include "header.html" %}
         <main id="main">{{ content | safe }}</main>
         {% include "footer.html" %}
-
-        <script defer src="/assets/js/nav.js"></script>
-        <script defer src="/assets/js/dark.js"></script>
-
-        <!--
-        This script adds a class to the body after scrolling 100px
+        <script src="/assets/js/nav.min.js"></script>
+        <script src="/assets/js/dark.min.js"></script>
+        <!-- This script adds a class to the body after scrolling 100px
         and we used these body.scroll styles to create some on scroll 
-        animations with the navbar
-    -->
-        <script defer>
+        animations with the navbar -->
+        <script>
             document.addEventListener('scroll', (e) => {
                 const scroll = document.documentElement.scrollTop;
                 if (scroll >= 100) {
@@ -84,6 +68,5 @@
                 }
             });
         </script>
-
     </body>
 </html>

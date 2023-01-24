@@ -68,6 +68,14 @@ You'll be working in the src folder with this project. In here is an organised s
 - **images** - Images to be optimised are stored here, before getting transformed and spat out in the /public folder
 - **pages** - All non-home pages are kept here
 
+### Koala LESS / JS / CSS Preprocessor and Minifying
+This kit uses the Koala Preprocessor which converts your LESS code into CSS. THe preprocessor also has the ability to minify your CSS and JS code for production (removing spaces, unnecessary characters, etc).
+
+- **LESS/CSS** - When you load the LESS files in the Koala GUI, be sure to check that style of compiling is "compression" (minified) and is saved to nameofcss.css and not nameofcss.min.css. 
+- **JS** - When loading the JS files in the Koala GUI, be sure to check the styling as well as the file name that it'll save to. The current code to call for JS in prod is: nav.min.js (notice the .min aspect of the filename).
+
+In both cases, only edit in LESS and JS and don't touch CSS or min.js files, they will get overwritten by changes in the LESS and fresh JS files. 
+
 #### src/images vs assets/images
 You may be wondering why there are two places to store images. This is to do with the eleventy image plugin. Images stored in src/images will be optimised and saved to the /public build folder, which includes a name change. assets/images contains images you don't want to be optimised by eleventy.
 

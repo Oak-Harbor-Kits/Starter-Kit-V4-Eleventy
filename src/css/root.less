@@ -143,8 +143,7 @@
             transition: width .3s;
         }
     }
-    
-    // HIdden Screen reader skip nav button
+    // Hidden Screen reader skip nav button
     .skip {
         position: absolute;
         top: 0;
@@ -152,6 +151,27 @@
         opacity: 0;
         z-index: -1111111;
     }
+    #toTopBtn {
+        display: none; /* Hidden by default */
+          position: fixed; /* Fixed/sticky position */
+          bottom: 1.6rem; /* Place the button at the bottom of the page */
+          right: 1.3rem; /* Place the button 30px from the right */
+          z-index: 101; /* Make sure it does not overlap */
+          outline: none; /* Remove outline */
+          background-color: var(--primary); /* Set a background color */
+          color: #000; /* Text color */
+          cursor: pointer; /* Add a mouse pointer on hover */
+          width: 3.5rem;
+          height: 3.5rem;
+          border-radius: 50%; /* Rounded corners */
+          border: solid 1px #000;
+          transition: all 0.3s ease 0s;
+          &:hover {
+            background-color: #000; /* Add a dark-grey background on hover */
+            color: #fff;
+            border: solid 2px #fff;
+            }
+        }
 }
 
 /* Reset Margins */
@@ -389,6 +409,18 @@
             height: 356/16rem;
             padding-top: 20/16rem;
             z-index: -100;
+            overflow: visible;
+
+
+            &:before {
+                content: '';
+                width: 100vw;
+                height: 100vh;
+                position: absolute;
+                top: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                transition: 0;
+              }
 
             ul {
                 li {
@@ -730,6 +762,11 @@
             width: 100%;
             z-index: -2;
 
+            #cta-image{
+                border-top-left-radius: clamp(.375em, 1.5vw, .75em);
+                border-top-right-radius: clamp(.375em, 1.5vw, .75em);
+            }
+
             img {
                 position: absolute;
                 top: 0;
@@ -1044,4 +1081,14 @@
             background: #061623;
         }
     }
+}
+
+
+
+
+// testing
+
+.cta-image{
+    border-top-left-radius: clamp(.375em, 1.5vw, .75em);
+border-top-right-radius: clamp(.375em, 1.5vw, .75em);
 }

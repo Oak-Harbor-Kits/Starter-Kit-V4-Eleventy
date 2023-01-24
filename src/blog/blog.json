@@ -1,4 +1,5 @@
 {
   "layout": "blog-post.html",
-  "tags": "post"
+  "tags": "post",
+  "permalink": "blog/{{ page.fileSlug }}.html"
 }
