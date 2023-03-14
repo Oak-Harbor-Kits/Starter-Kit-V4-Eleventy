@@ -207,7 +207,16 @@
     transform: translateY(-50%);
     transition: top .3s;
   }
-  #navigation .hamburger-menu span {
+  #navigation .hamburger-menu .visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  #navigation .hamburger-menu .menu-icon {
     height: 2px;
     width: 1.875rem;
     background-color: #000;
@@ -217,7 +226,7 @@
     transform: translateX(-50%);
     transition: background-color 0.3s;
   }
-  #navigation .hamburger-menu span:before {
+  #navigation .hamburger-menu .menu-icon:before {
     content: '';
     position: absolute;
     display: block;
@@ -229,7 +238,7 @@
     left: 0;
     transition: width .3s, left .3s, top .3s, transform .5s;
   }
-  #navigation .hamburger-menu span:after {
+  #navigation .hamburger-menu .menu-icon:after {
     content: '';
     position: absolute;
     display: block;

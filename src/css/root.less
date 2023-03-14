@@ -235,7 +235,17 @@
             transform: translateY(-50%);
             transition: top .3s;
 
-            span {
+            .visually-hidden {
+                clip: rect(0 0 0 0);
+                clip-path: inset(50%);
+                height: 1px;
+                overflow: hidden;
+                position: absolute;
+                white-space: nowrap;
+                width: 1px;
+            }
+
+            .menu-icon {
                 height: 2px;
                 width: 30/16rem;
                 background-color: #000;
