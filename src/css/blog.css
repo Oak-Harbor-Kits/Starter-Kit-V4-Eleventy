@@ -61,6 +61,52 @@
   .blog-link:hover:before {
     opacity: 1;
   }
+  .pagination {
+    padding: .5rem 1.5rem;
+    box-shadow: 0px 20px 39px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 0.25rem;
+    border: 1px solid #ebebeb;
+  }
+  .pagination .pagination-list {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    align-items: center;
+  }
+  .pagination .pagination-previous,
+  .pagination .pagination-next {
+    display: flex;
+    align-items: center;
+  }
+  .pagination .pagination-previous.inactive,
+  .pagination .pagination-next.inactive {
+    opacity: 0.6;
+  }
+  .pagination .pagination-previous {
+    padding-right: 0.5rem;
+  }
+  .pagination .pagination-next {
+    padding-left: 0.5rem;
+  }
+  .pagination .pagination-numbers {
+    line-height: normal;
+    padding: 0.125rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+  .pagination .pagination-numbers.active {
+    background: var(--primary);
+  }
+  .pagination .pagination-numbers-link {
+    color: var(--bodyHeader);
+    line-height: normal;
+    text-decoration: none;
+  }
+  .pagination .pagination-controller-link {
+    display: flex;
+    line-height: normal;
+    align-self: center;
+    font-size: 1rem;
+  }
 }
 /*-- -------------------------- -->
 <---           Header           -->

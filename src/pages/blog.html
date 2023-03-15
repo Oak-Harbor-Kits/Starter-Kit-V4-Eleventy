@@ -1,24 +1,28 @@
 ---
-layout: 'base.html'
-description: 'Meta description for the page'
-metaTitle: 'Title that shows up on google searches'
-tagTitle: 'Blog'
-preloadImg: '/images/cabinets2-1920w.webp'
-preloadCSS: '/css/blog.css'
-permalink: 'blog/'
+layout: "base.html"
+description: "Meta description for the page"
+metaTitle: "Title that shows up on google searches"
+tagTitle: "Blog"
+permalink: "{% if pagination.pageNumber === 0 %}blog/{% else %}blog/page-{{ pagination.pageNumber + 1 }}/index.html{% endif %}"
+pagination:
+  data: collections.post
+  size: 2
+  alias: post
+preloadImg: "/images/cabinets2-1920w.webp"
+preloadCSS: "/css/blog.css"
 eleventyNavigation:
-    key: Blog
-    order: 500
+  key: Blog
+  order: 500
 ---
 
-<!-- Enter html code below -->
 <!-- ============================================ -->
 <!--                    LANDING                   -->
 <!-- ============================================ -->
 
 <section id="int-hero">
-    <h1 id="home-h">Blog</h1>
-    {% image './src/images/cabinets2.jpg', 'cabinets', '', 'lazy', '(max-width: 850px) 850px, 1920px'%}
+  <h1 id="home-h">Blog</h1>
+  {% image './src/images/cabinets2.jpg', 'cabinets', '', 'lazy', '(max-width:
+  850px) 850px, 1920px'%}
 </section>
 
 <!-- ============================================ -->
@@ -26,60 +30,110 @@ eleventyNavigation:
 <!-- ============================================ -->
 
 <div class="blog-container main-content-wrapper">
-    <!--Main content -->
-    <div class="main-content">
-        <!-- ============================================ -->
-        <!--                 Blog Articles                -->
-        <!-- ============================================ -->
+  <!--Main content -->
+  <div class="main-content">
+    <!-- ============================================ -->
+    <!--                 Blog Articles                -->
+    <!-- ============================================ -->
 
-        {% if collections.post | length == 0 %}
-            <h1>No Recent Posts</h1>
-        {% endif %}
-        {%- for post in collections.post | reverse -%}
-            <article class="recent-articles">
-                <!--Main Article Image-->
-                <picture class="blog-mainImage">
-                    <img
-                        src="{{ post.data.image }}"
-                        alt="{{ post.data.imageAlt }}"
-                        width="795"
-                        height="400"
-                        decoding="async"
-/>
-                </picture>
-                <!--Article Info-->
-                <div class="article-group">
-                    <div class="blog-authorGroup">
-                        <!--Author Image-->
-                        <picture class="blog-author-img">
-                            <img
+    {% if collections.post | length == 0 %}
+    <h1>No Recent Posts</h1>
+    {% endif %} {%- for post in pagination.items | reverse -%}
+    <article class="recent-articles">
+      <!--Main Article Image-->
+      <picture class="blog-mainImage">
+        <img
+          src="{{ post.data.image }}"
+          alt="{{ post.data.imageAlt }}"
+          width="795"
+          height="400"
+          decoding="async"
+        />
+      </picture>
+      <!--Article Info-->
+      <div class="article-group">
+        <div class="blog-authorGroup">
+          <!--Author Image-->
+          <picture class="blog-author-img">
+            <img
               src="/assets/svgs/profile.svg"
               alt="house"
               width="32"
               height="32"
               decoding="async"
-/>
-                        </picture>
-                        <span class="blog-author">{{ post.data.author }}</span>
-                        <span aria-hidden="true" class="blog-dot"></span>
-                        <!--Blog Date-->
-                        <span class="blog-date">{{ post.date | postDate }}</span>
-                    </div>
-                    <h2 class="blog-h1">
-                        {{ post.data.blogTitle }}
-                    </h2>
-                    <p class="blog-desc">
-                        {{ post.data.blogDescription }}
-                    </p>
-                    <a href="{{ post.url }}" class="blog-link">Continue Reading</a>
-                </div>
-            </article>
+            />
+          </picture>
+          <span class="blog-author">{{ post.data.author }}</span>
+          <span aria-hidden="true" class="blog-dot"></span>
+          <!--Blog Date-->
+          <span class="blog-date">{{ post.date | postDate }}</span>
+        </div>
+        <h2 class="blog-h1">{{ post.data.blogTitle }}</h2>
+        <p class="blog-desc">{{ post.data.blogDescription }}</p>
+        <a href="{{ post.url }}" class="blog-link">Continue Reading</a>
+      </div>
+    </article>
+    {%- endfor -%} 
+    <!-- This won't be rendered if we don't have enough posts to need pagination -->
+    {%- if pagination.href.next or pagination.href.previous -%}
+    <nav class="pagination">
+      <ul class="pagination-list">
+        <!-- If on first page we give it the class of inactive -->
+        <li class="pagination-previous {{ 'inactive' if pagination.pageNumber === 0 }}">
+          <a class="pagination-controller-link" href="{{ pagination.href.previous }}">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <polyline points="15 6 9 12 15 18" />
+            </svg>
+          </a>
+        </li>
+        <!-- Display the number of pages in the blog -->
+        {%- for pageEntry in pagination.pages -%}
+          <!-- Render two next pages if the current page is the first page -->
+          {% if pagination.pageNumber === 0 %}
+            {% if loop.index <= 3 %}
+            <!-- Give class of active if we are in the page the number is representing -->
+            <li class="pagination-numbers {{ 'active' if pagination.pageNumber + 1 === loop.index }}">
+              <a class="pagination-numbers-link" href="{{ pagination.hrefs[loop.index0]}}">{{loop.index}}</a>
+            </li>
+            {%- endif -%}
+          {%- endif -%}
+          <!-- Renders the pages in between -->
+          {% if pagination.pageNumber !== 0 and pagination.pageNumber + 1 !== collections.post.length %}
+            {% if pagination.pageNumber - 1 < loop.index %}
+            <!-- Give class of active if we are in the page the number is representing -->
+            <li class="pagination-numbers {{ 'active' if pagination.pageNumber + 1 === loop.index }}">
+              <a class="pagination-numbers-link" href="{{ pagination.hrefs[loop.index0]}}">{{loop.index}}</a>
+            </li>
+            {%- endif -%}
+          {%- endif -%}
+          <!-- If on last page render the previous 2 pages -->
+          {% if pagination.pageNumber + 1 === collections.post.length %}
+            {% if loop.index >= collections.post.length - 2 %}
+            <!-- Give class of active if we are in the page the number is representing -->
+            <li class="pagination-numbers {{ 'active' if pagination.pageNumber + 1 === loop.index }}">
+              <a class="pagination-numbers-link" href="{{ pagination.hrefs[loop.index0]}}">{{loop.index}}</a>
+            </li>
+            {% endif %}
+          {%- endif -%}
         {%- endfor -%}
-    </div>
+        <!-- If on last page we give it the class of inactive -->
+        <li class="pagination-next {{ 'inactive' if pagination.pageNumber + 1 == collections.post.length }}">
+          <a class="pagination-controller-link" href="{{ pagination.href.next }}">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <polyline points="9 6 15 12 9 18" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    {%- endif -%}
+  </div>
 
-    <!-- ============================================ -->
-    <!--                Featured Posts                -->
-    <!-- ============================================ -->
+  <!-- ============================================ -->
+  <!--                Featured Posts                -->
+  <!-- ============================================ -->
 
-    {% include 'featured-post.html' %}
+  {% include 'featured-post.html' %}
 </div>
