@@ -59,12 +59,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/_redirects');
   eleventyConfig.addPassthroughCopy({ './src/robots.txt': '/robots.txt' });
 
-  // open on npm start and watch CSS files for changes - doesn't trigger 11ty rebuild
-  eleventyConfig.setBrowserSyncConfig({
-    open: true,
-    files: './public/css/**/*.css',
-  });
-
   // allows the {% image %} shortcode to be used for optimised iamges (in webp if possible)
   eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
 
